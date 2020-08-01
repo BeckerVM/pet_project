@@ -1,0 +1,19 @@
+$color-primary: #eb2f64;
+
+.text-f {
+  color: $color-primary !important;
+}
+
+.text-m {
+  color: #00b2e2 !important;
+}
+
+.b-f:hover {
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(252,70,107,1) 100%);
+}
+
+.b-m:hover {
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, #00b2e2 100%);
+}

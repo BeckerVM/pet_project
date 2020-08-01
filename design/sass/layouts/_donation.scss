@@ -1,0 +1,180 @@
+.donation {
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all .8s ease-in;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+
+  &__right {
+    background-color: #ebe7e2;
+    flex: 1;
+  }
+
+  &__left {
+    flex: 1;
+    transform: skew(-5deg, 0);
+    background-color: #fff;
+    display: flex;
+
+    h3 {
+      color: $color-primary;
+      font-size: 13rem;
+      font-style: italic;
+      position: absolute;
+      top: 18%;
+      left: 47%;
+      transform: translateX(-47%);
+      font-weight: 300;
+    }
+
+    > div {
+      transform: skew(0, 0);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    img {
+      width: 70%;
+    }
+  }
+
+  &__form {
+    padding: 3rem 6rem;
+
+    h5 {
+      color: $color-primary;
+      font-size: 4rem;
+      text-align: center;
+      font-weight: bold;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__content-btn {
+    display: flex;
+    align-items: center;
+  }
+
+  &__btn {
+    background-color: #fff;
+    display: inline-block;
+    padding: 1rem 7rem;
+    font-size: 1.6rem;
+    border-radius: .3rem;
+
+    margin: 0 auto 2rem;
+    color: $color-primary;
+    font-weight: bold;
+    border: .1rem solid $color-primary;
+
+
+  }
+
+  &__accounts {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+  }
+
+  &__account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.6rem;
+  }
+
+  &__msg {
+    font-size: 1.6rem;
+  }
+
+  &__inputs {
+    margin-top: 2rem;
+  }
+
+  &__container-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+  }
+
+  &__input {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      padding: .3rem;
+      font-size: 1.4rem;
+    }
+
+    label {
+      font-size: 1.4rem;
+      margin-bottom: .5rem;
+    }
+  }
+  
+  &__file {
+    margin-bottom: 2rem;
+    input {
+      display: none;
+    }
+
+    label {
+      background-color: #fff;
+      width: 100%;
+      justify-content: center;
+      color: $color-primary;
+      padding: .5rem;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      transition: all .3s;
+      cursor: pointer;
+
+      i {
+        margin-left: .4rem;
+      }
+    }
+
+    label:hover {
+      background-color: $color-primary;
+      color: #fff;
+    }
+  }
+
+  &__submit {
+    display: flex;
+    justify-content: center;
+
+    button {
+      background-color: $color-primary;
+      color: #fff;
+      border: none;
+      border-radius: .3rem;
+      padding: 1rem 5rem;
+      cursor: pointer;
+      font-weight: bold;
+      font-style: italic;
+      transition: all .3s;
+    }
+
+    button:hover {
+      background-color: #e02f61;
+    }
+  }
+}
+
+.open_donation {
+  opacity: 1;
+  visibility: visible;
+}

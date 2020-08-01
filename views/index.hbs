@@ -1,0 +1,81 @@
+{{> verticalmenu }}
+
+
+
+<div class="content">
+  {{> horizontalmenu }}
+  
+  <div class="banner">
+    <p>Adoptar es <span>Amar</span></p>
+    <p>CAMBIA SU VIDAD Y SUMA <span>Felicidad</span> A LA TUYA</p>
+  </div>
+  <div class="home">
+    <div class="home__pet-title">
+      <h2>CONOCE A TU <span>MASCOTA IDEAL</span></h2>
+    </div>
+    <div class="home__pet-content">
+      {{#each pets}}
+        <a href="/pet/{{this.id}}" class="home__pet-pet b-m">
+          <span class="text-m">{{this.nombre}}</span>
+          <img src="{{this.photo}}" alt="{{this.nombre}}">
+          <span class="home__pet-sub">Adopta a tu mejor amigo</span>
+        </a>
+      {{/each}}
+   
+    </div>
+    <div class="home__pet-subtitle">
+      <a href="#"><i class="fas fa-dog"></i> Conoce más mascotas aquí <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="home__amenidades">
+      <div class="home__amenidades-content">
+        <h3 class="home__amenidades-title"><span>AMENIDADES</span> <strong>PARA ENMARCAR</strong></h3>
+        <div class="home__amenidad-1 home__amenidad">
+          <img src="https://www.matchcota.org/uploads/testimonio/testimonio-1-panchita.jpg" alt="Amenidad1">
+          <a href="#">Ver Amenidad</a>
+        </div>
+        <div class="home__amenidad-2 home__amenidad">
+          <img src="https://www.matchcota.org/uploads/testimonio/testimonio-2-maya.jpg" alt="Amenidad2">
+          <a href="#">Ver Amenidad</a>
+        </div>
+        <div class="home__amenidad-3 home__amenidad">
+          <img src="https://www.matchcota.org/uploads/testimonio/test.jpg" alt="Amenidad3">
+          <a href="#">Ver Amenidad</a>
+        </div>
+        <div class="home__amenidad-4 home__amenidad">
+          <img src="https://www.matchcota.org/uploads/testimonio/testimonio-5-bonnie.jpg" alt="Amenidad4">
+          <a href="#">Ver Amenidad</a>
+        </div>
+        <div class="home__amenidades-subtitle">
+          <a href="#"><i class="fas fa-paw"></i> Ver más amenidades aquí <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="home__steps">
+      <h3>EN HAPPYPET PUEDES ADOPTAR <span>A TU MASCOTA IDEAL</span></h3>
+      <img src="images/pet.png" alt="">
+
+
+    </div>
+    <div class="home__news">
+      <h3>ENTERATE DE <span>LO ULTIMO</span></h3>
+      <div class="home__news-content">
+        <div class="home__new">
+          <img src="https://www.matchcota.org/uploads/noticia/protagonistas-del-cambio-2017.jpg" alt="new1">
+          <a href="#">Ver Noticia</a>
+        </div>
+        <div class="home__new">
+          <img src="https://www.matchcota.org/uploads/uahlp.jpg" alt="new2">
+          <a href="#">Ver Noticia</a>
+        </div>
+        <div class="home__new">
+          <img src="https://www.matchcota.org/uploads/padrinos.png" alt="new3">
+          <a href="#">Ver Noticia</a>
+        </div>
+      </div>
+      <div class="home__news-subtitle">
+        <a href="#"><i class="fas fa-paw"></i> Ver más noticias <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+  {{> footer }}
+</div>

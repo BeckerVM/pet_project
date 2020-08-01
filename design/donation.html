@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+</head>
+<body id="body">
+  <div class="container" id="app">
+    <div class="menumenu" id="menu">
+      <i class="fas fa-times-circle menumenu__close" @click="closeMenu"></i>
+      <div class="menumenu__container">
+        <img src="./images/logo2.png" alt="logo2" class="menumenu__logo">
+        <div class="menumenu__menu">
+          <a href="">INICIO</a>
+          <a href="">NOSOTROS</a>
+          <a href="">ADOPTA</a>
+          <a href="">AMENIDADES</a>
+          <a href="">NOTICIAS</a>
+          <div class="menumenu__linku">
+            <a href="#">
+              <span><i class="fas fa-money-bill-wave-alt"></i></span>
+                Dona
+            </a>
+            <a href="#">
+              <span><i class="fas fa-paw"></i></span>
+                Apadrina
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="donation">
+      <i class="fas fa-times-circle menumenu__close"></i>
+      <div class="donation__left">
+        <h3>Dona</h3>
+        <div>
+          <img src="https://www.matchcota.org/static/img/img_dona.png">
+        </div>
+        
+      </div>
+      <div class="donation__right">
+        <div class="donation__form">
+          <h5>DONA AL PROYECTO</h5>
+          <div class="donation__content-btn">
+            <p class="donation__btn">DEPOSITA EN CUENTA</p>
+          </div>
+          
+          <div class="donation__accounts">
+            <div class="donation__account">
+              <span>Cuenta de ahorro BCP:</span>
+              <strong>19433308352098</strong>
+            </div>
+            <div class="donation__account">
+              <span>Cuenta Bancaria:</span>
+              <strong>00219413330835209895</strong>
+            </div>
+          </div>
+          <p class="donation__msg">
+            Si ya realizaste una donación déjanos aquí tus datos y adjunta el voucher del depósito para poderte enviar una postal digital como agradecimiento:
+          </p>
+          <form class="donation__inputs">
+            <div class="donation__container-inputs">
+              <div class="donation__input">
+                <label for="">Nombre y Apellido</label>
+                <input type="text">
+              </div>
+              <div class="donation__input">
+                <label for="">Dirección</label>
+                <input type="text">
+              </div>
+            </div>
+            <div class="donation__container-inputs">
+              <div class="donation__input">
+                <label for="">DNI</label>
+                <input type="text">
+              </div>
+              <div class="donation__input">
+                <label for="">Celular</label>
+                <input type="text">
+              </div>
+            </div>
+            <div class="donation__container-inputs">
+              <div class="donation__input">
+                <label for="">Correo Elctronico</label>
+                <input type="text">
+              </div>
+              <div class="donation__input">
+                <label for="">Confirmación de Correo Electronico</label>
+                <input type="text">
+              </div>
+            </div>
+            <div class="donation__file">
+              <label for="file">Selecciona Archivo <i class="fas fa-upload"></i></label>
+              <input type="file" id="file" name="file">
+            </div>
+            <div class="donation__submit">
+              <button type="submit">ENVIAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="menu">
+      <div class="menu__content">
+        <i class="fas fa-bars" @click="openMenu"></i>
+        <span>MENU</span>
+      </div>
+    </div>
+    <div class="content">
+      <header class="header">
+        <div class="header__content">
+          <img class="logo" src="./images/logo.png" alt="">
+          <div class="header__menu">
+            <a href="#"><i class="fas fa-paw"></i> <span>ADOPTA</span></a>
+            <a href="#"><i class="fas fa-bone"></i> <span>APADRINA</span></a>
+            <a @click.prevent="openDonation" href="#"><i class="fas fa-money-bill-wave-alt"></i> <span>DONA</span></a>
+          </div>
+        </div>
+      </header>
+      <div class="pet">
+        <div class="pets__banner">
+          <h2>TU <span>MASCOTA</span>  <span>IDEAL</span></h2>
+        </div>
+        <div class="pet__content">
+          <div class="pet__left">
+            <a href="#" class="pet__link"><i class="fas fa-arrow-left"></i> CONOCE MÁS MASCOTAS AQUÍ</a>
+            <div class="pet__photop">
+              <img src="https://www.matchcota.org/uploads/mascota/2020/fania12.png" alt="">
+            </div>
+            <div class="pet__photos">
+              <img src="https://www.matchcota.org/uploads/mascota/2020/fania12.png" alt="photo_pet">
+              <img src="https://www.matchcota.org/uploads/mascota/2020/fania22.png" alt="photo_pet">
+              <img src="https://www.matchcota.org/uploads/mascota/2020/fania32.png" alt="photo_pet">
+              <img src="https://www.matchcota.org/uploads/mascota/2020/fania42.png" alt="photo_pet">
+            </div>
+          </div>
+          <div class="pet__right">
+            <h4 class="pet__name">FANIA</h4>
+            <div class="pet__information">
+              <div class="pet__header"><p><i class="fas fa-paw"></i> Informacion General</p></div>
+              <div class="pet__info">
+                <p>Fania es una perrita muy dulce y cariñosa, solo no le gusta que la presionen, va a su ritmo. Fania sufre de alergias en la piel producto de la tierra, pero solo aparecen cada cierto tiempo y se controlan con pastillas.</p>
+              </div>
+            </div>
+            <div class="pet__information">
+              <div class="pet__header"><p><i class="fas fa-dog"></i> Características Físicas</p></div>
+              <div class="pet__info">
+                <div class="pet__characters">
+                  <span>Sexo: Hembra</span>
+                  <span>Pelaje: Si</span>
+                  <span>Tamaño: Mediano</span>
+                </div>
+              </div>
+            </div>
+            <div class="pet__information">
+              <div class="pet__header"><p><i class="far fa-file-alt"></i> Historia</p></div>
+              <div class="pet__info">
+                <p>
+                  Fania fue encontrada en la época de Navidad en 2014. Se había trepado al pequeño techo de una casa en el Callao, muy asustada, tratando de esconderse del sonido de los fuegos artificiales. Allí estuvo unos días, sola, sin comida ni agua, hasta que fue rescatada. Fania es muy educada y cariñosa, pero también muy juguetona e independiente. Ella espera una familia con quien compartir toda su energía.
+                </p>
+              </div>
+            </div>
+            <div class="pet__btn">
+              <a href="#">ADOPTAR</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="home__footer">
+          <img src="https://www.matchcota.org/static/img/footer_mascota.png" alt="dog">
+          <div class="home__footer-rigth">
+            <p>PARA MAS INFORMACION CONTACTATE CON NOSOTROS</p>
+            <p><strong>Facebook:</strong> ...</p>
+            <p><strong>Instagram:</strong> ...</p>
+            <h5>HAPPYPET@NOEXISTE.ORG</h5>
+          </div>
+        </div>
+        <div class="home__footerb">
+          <p>HappyPet 2020 Todos los Derechos Reservados</p>
+          <p>Diseño Web: <strong>RekceB</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js" integrity="sha512-QJsj3afWlCpnQ60XzzYE8Jb3IgHIK1BcGZox9rUSmRRq3Ocz9vQ1yR80eX2/b9jfx/UuT5zYWNdrM8Te/eCMhQ==" crossorigin="anonymous"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+.pet {
+
+  &__content {
+    display: flex;
+    padding: 4.5rem;
+  }
+
+  &__left {
+
+  }
+
+  &__right {
+    padding: 2rem 6rem;
+  }
+
+  &__photop {
+    width: 42.5rem;
+    height: 45.5rem;
+    box-shadow: 0 0 .4rem .4rem #ddd, inset 0 0 .4rem .4rem #ddd;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__link {
+    text-align: center;
+    font-size: 2rem;
+    color: #5d5d72;
+    font-style: italic;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4rem;
+    
+    i {
+      transition: all .3s ease;
+    }
+  }
+
+  &__link:hover {
+    i {
+      margin-right: .5rem;
+    }
+  }
+
+  &__photos {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    img {
+      width: 8.7rem;
+      height: 8.7rem;
+      margin: 0 .1rem;
+    }
+  }
+
+  &__header {
+    background-color: $color-primary;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 1.5rem 2.5rem;
+
+    p {
+      font-size: 1.8rem;
+    }
+
+    i {
+      margin-right: 1rem;
+    }
+  }
+
+  &__name {
+    color: $color-primary;
+    font-size: 3rem;
+    font-style: italic;
+    margin-bottom: 3rem;
+  }
+
+  &__info {
+    padding: 1.5rem 2.5rem;
+    border: .1rem solid #ddd;
+
+    p {
+      font-size: 1.8rem;
+      color: #8d8b8b;
+    }
+  }
+
+  &__information {
+    margin-bottom: 2rem;
+  }
+
+  &__characters {
+    display: flex;
+    justify-content: space-around;
+
+    span {
+      font-size: 1.8rem;
+      color: #8d8b8b;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      background-color: #00b2e2;
+      font-size: 2rem;
+      font-style: italic;
+      padding: .7rem 4rem;
+      font-weight: bold;
+      border-radius: .5rem;
+      transition: all .3s ease;
+    }
+
+    a:hover {
+      background-color: #0898c0;
+    }
+  }
+}

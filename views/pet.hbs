@@ -1,0 +1,62 @@
+{{> verticalmenu }}
+
+{{> donationmodal }}
+
+<div class="content">
+  {{> horizontalmenu }}
+
+  <div class="pet">
+    {{> banner2 }}
+
+    <div class="pet__content">
+      <div class="pet__left">
+        <a href="#" class="pet__link"><i class="fas fa-arrow-left"></i> CONOCE MÁS MASCOTAS AQUÍ</a>
+        <div class="pet__photop">
+          <img :src="petImageWebSelected.url" alt="">
+        </div>
+        <div class="pet__photos">
+          <img @click="changePetImageWeb(petImageWeb)" v-for="petImageWeb in petImagesWeb" alt="photo_pet" :key="petImageWeb.id" :src="petImageWeb.url">
+        </div>
+      </div>
+      <div class="pet__right">
+        <h4 class="pet__name">[[ petWeb.nombre.toUpperCase() ]]</h4>
+        <div class="pet__information">
+          <div class="pet__header">
+            <p><i class="fas fa-paw"></i> Informacion General</p>
+          </div>
+          <div class="pet__info">
+            <p>[[ petWeb.informacion ]]</p>
+          </div>
+        </div>
+        <div class="pet__information">
+          <div class="pet__header">
+            <p><i class="fas fa-dog"></i> Características Físicas</p>
+          </div>
+          <div class="pet__info">
+            <div class="pet__characters">
+              <span>Sexo: [[ petWeb.sexo ]]</span>
+              <span>Pelaje: [[ petWeb.pelaje ]]</span>
+              <span>Tamaño: [[ petWeb.tamano ]]</span>
+            </div>
+          </div>
+        </div>
+        <div class="pet__information">
+          <div class="pet__header">
+            <p><i class="far fa-file-alt"></i> Historia</p>
+          </div>
+          <div class="pet__info">
+            <p>
+              [[ petWeb.historia ]]
+            </p>
+          </div>
+        </div>
+        <div class="pet__btn">
+          <a href="#">ADOPTAR</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {{> footer}}
+</div>
