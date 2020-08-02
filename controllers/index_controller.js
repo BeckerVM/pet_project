@@ -9,6 +9,16 @@ const getDataHome = (req, res) => {
   })
 }
 
+const getHistory = (req, res) => {
+  res.render('history')
+}
+
+const getNew = (req, res) => {
+  res.render('new')
+}
+
 module.exports = {
-  getDataHome
+  getDataHome,
+  getHistory,
+  getNew
 }

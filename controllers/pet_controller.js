@@ -3,6 +3,7 @@ const connection = require('../db/connection')
 const getPet = (req, res) => {
   res.render('pet')
 }
+
 const getDataPetById = (req, res) => {
   const { petId } = req.params
 
@@ -18,7 +19,32 @@ const getDataPetById = (req, res) => {
   })
 }
 
+const getPets = (req, res) => {
+  res.render('pets')
+}
+
+const getAllPets = (req, res) => {
+  connection.query('SELECT * FROM mascotas', (err, pets) => {
+    if(err) throw err
+
+    res.json({ pets })
+  })
+}
+
+const getPetsByAge = (req, res) => {
+  const { petAge } = req.params
+
+  connection.query('SELECT * FROM mascotas WHERE crecimiento = ?', [petAge], (err, pets) => {
+    if(err) throw err
+
+    res.json({ pets })
+  })
+}
+
 module.exports = {
   getDataPetById,
-  getPet
+  getPet,
+  getPets,
+  getAllPets,
+  getPetsByAge
 }

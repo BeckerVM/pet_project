@@ -1,0 +1,75 @@
+.amenidad {
+  padding: 3rem 12.8rem;
+}
+
+.amenidad__title {
+  color: #00b2e2;
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 4rem;
+  font-style: italic;
+}
+
+.amenidad__content {
+  display: flex;
+}
+
+.amenidad__content > div {
+  flex: 1;
+  padding: 0 2rem;
+}
+
+.amenidad__left {
+  
+  padding-top: 3rem !important;
+}
+
+.amenidad__left h6, .amenidad__right h6 {
+  color: #eb2f64;
+  font-size: 3rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.amenidad__left p, .amenidad__right p {
+  color: #8d8b8b;
+  font-size: 2.3rem;
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+
+.amenidad__right {
+  display: flex;
+  justify-content: center;
+}
+
+.amenidad__right img {
+  border-top: 2rem solid #dbdbdb;
+  border-left: 2rem solid #d1d1d1;
+  border-right: 2rem solid #e6e6e6;
+  border-bottom: 2rem solid #d5d7d9;
+  box-shadow: .6rem .6rem 2rem .1rem #b9bbbe;
+  width: 43.7rem;
+  height: 43.4rem;
+}
+
+.amenidad__left img {
+  box-shadow: .6rem .6rem 2rem .1rem #b9bbbe;
+  width: 43.7rem;
+  height: 43.4rem;
+}
+
+.new {
+  display: block !important;
+}
+
+.amenidad__link {
+  text-align: center;
+  font-size: 2.3rem;
+  color: #5d5d72;
+  font-style: italic;
+  text-decoration: none;
+  font-weight: bold; 
+  display: block;
+  margin-top: 5rem;
+}

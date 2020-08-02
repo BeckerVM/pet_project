@@ -553,6 +553,14 @@ body {
     .pets__banner h2 span:nth-child(1) {
       color: #00b2e2; }
 
+.banner3 {
+  background-image: url("https://www.matchcota.org/uploads/banner/internas/test-ban1.png") !important;
+}
+
+.banner4 {
+  background-image: url("https://www.matchcota.org/uploads/banner/internas/banner1-min.png") !important;
+}
+
 .pets__content {
   padding-top: 4rem; }
 
