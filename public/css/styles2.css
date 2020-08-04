@@ -73,3 +73,148 @@
   display: block;
   margin-top: 5rem;
 }
+
+.login {
+  padding: 2rem;
+  width: 100%;
+}
+
+.login__link {
+  text-decoration: none;
+  color: #eb2f64;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.login__container-logo {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  width: 100%;
+  margin-bottom: 8rem;
+}
+
+.login__container-form {
+  display: flex;
+  justify-content: center;
+}
+
+.login__form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 35rem;
+  justify-content: flex-end;
+}
+
+.login__form button {
+  background-color: #00b2e2;
+  color: #fff;
+  transition: all .3s;
+  padding: .6rem 2rem;
+  border-radius: .4rem;
+  border: none;
+  cursor: pointer;
+}
+
+.login__form button:hover {
+  background-color: #eb2f64;
+}
+
+
+.login__form-inputs {
+  box-shadow: .1rem .1rem .1rem .1rem rgba(0, 0, 0, .2);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: .4rem;
+  width: 100%;
+}
+
+.login__form-inputs  input {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  padding: .5rem 1rem;
+  box-shadow: 0.1rem 0.1rem 0.1rem .1rem rgba(0, 0, 0, .2);
+  border: none;
+  font-size: 1.5rem;
+  border-radius: .4rem;
+}
+
+/* DASHBOARD */
+.dashboard {
+  padding-left: 25.6rem;
+  padding-top: 10.4rem;
+  background-color: #ebedef;
+}
+
+.dashboard__menu-vertical {
+  z-index: 1000;
+  position: fixed;
+  width: 25.6rem;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #3c4b64;
+  box-shadow: 0 .2rem .2rem 0 rgba(235, 47, 100, .14), 0 .3rem .1rem -.2rem rgba(235, 47, 100, .12), 0 .1rem .5rem 0 rgba(235, 47, 100, .2);
+}
+
+.dashboard__menu-horizontal {
+  position: fixed;
+  height: 10.4rem;
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(60,75,100,.14), 0 3px 1px -2px rgba(60,75,100,.12), 0 1px 5px 0 rgba(60,75,100,.2);
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: #fff;
+}
+
+.dash__menu a {
+  color: #fff;
+  padding: 1.35rem 1.6rem;
+  display: block;
+  font-size: 1.5rem;
+  transition: all .3s;
+}
+
+.dash__menu a:hover {
+  background-color: #eb2f64;
+}
+
+.dash__logo {
+  background-color: #303c54;
+}
+
+.dash__logo h3 {
+  font-size: 2.4rem;
+  color: #fff;
+  font-style: italic;
+  text-align: center;
+  padding: 1.4rem 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.dashboard__menu-vertical a > i {
+  width: 1.5rem;
+  margin-right: 2rem;
+}
+.dash__dash {
+  color: #fff;
+  padding: 1.35rem 1.6rem;
+  display: block;
+  background-color: #46546c;
+  font-size: 1.5rem;
+  transition: all .3s;
+}
+.dash__dash:hover {
+  background-color: #eb2f64;
+}
+
+.dashboard__menu-vertical p {
+  color: rgba(255,255,255,.6);
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 1.6rem 1.6rem 1rem;
+}
