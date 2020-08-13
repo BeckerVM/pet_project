@@ -1,0 +1,23 @@
+{{> verticalmenu }}
+
+{{> donationmodal }}
+
+<div class="content">
+  {{> horizontalmenu }}
+
+  {{> banner4 }}
+
+  <div class="amenidad">
+    <h5 class="amenidad__title">NOTICIAS</h5>
+    <div class="news__content">
+      {{#each news}}
+        <div class="home__new news__new">
+          <img src="{{this.url}}" alt="new1">
+          <a href="/new/{{this.id}}">Ver Noticia</a>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  {{> footer}}
+</div>

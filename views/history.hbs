@@ -11,20 +11,11 @@
     <h5 class="amenidad__title">HISTORIA</h5>
     <div class="amenidad__content">
       <div class="amenidad__left">
-        <h6>Donna y Bonnie</h6>
-        <p>Después de haber perdido a nuestra bebé peluda de 3 meses, su hermanito Boyka quedó solo y muy triste, pues
-          su hermanita con quien jugaba había partido, todos en casa quedamos muy dolidos pero con el paso de tiempo
-          decidimos darle una compañera a nuestro bebé, alguien con quien pueda interactuar, y fue así que Matchcota nos
-          ayudó a encontrar al peludito ideal de acuerdo al perfil de nuestra familia. Cuando nos contaron el caso de
-          Bonnie quedamos muy desconcertados y no dudamos en quererla y brindarle el calor de hogar, la bebé llego a
-          casa muy nerviosa pero pronto fue tomando confianza y conociendo a sus nuevos hermanos. Hoy en día es una
-          pequeña hermosa, juguetona y feliz.
-          Todos en casa estamos muy felices de tenerla con nosotros y agradecemos a todo el equipo Matchcota y a
-          Daniella, quien estuvo pendiente de todo el proceso. Bonnie nos dio más alegrías y nosotros se la damos a
-          ella.</p>
+        <h6>{{ history.nombre }}</h6>
+        <p>{{ history.contenido }}</p>
       </div>
       <div class="amenidad__right">
-        <img src="https://www.matchcota.org/uploads/testimonio/testimonio-bonnie.jpg" alt="historia">
+        <img src="{{ history.url }}" alt="historia">
       </div>
     </div>
   </div>

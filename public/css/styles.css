@@ -403,24 +403,33 @@ body {
   justify-content: center;
   text-decoration: none; }
 
-.home__amenidad-1 {
+.home__amenidad-4 {
   top: 12rem;
   left: 2rem; }
-  .home__amenidad-1 img {
+  .home__amenidad-4 img {
     width: 22rem;
     height: 22rem; }
 
-.home__amenidad-2 {
+.home__amenidad-5 {
   top: 0rem;
   left: 40rem; }
+  .home__amenidad-5 img {
+    width: 14rem;
+    height: 14rem; }
 
-.home__amenidad-3 {
+.home__amenidad-6 {
   top: 30rem;
   left: 40rem; }
+  .home__amenidad-6 img {
+    width: 20rem;
+    height: 13rem; }
 
-.home__amenidad-4 {
+.home__amenidad-7 {
   top: 10rem;
   left: 70rem; }
+  .home__amenidad-7 img {
+    width: 24.6rem;
+    height: 32.2rem; }
 
 .home__amenidades-subtitle {
   position: absolute;

@@ -20,9 +20,13 @@ router.get('/pet/:petId', petController.getPet)
 
 router.post('/pet/:petId', petController.getDataPetById)
 
-//AMANIDDADES
-router.get('/history/1', indexController.getHistory)
+//AMANIDADES
+router.get('/history/:historyId', indexController.getHistory)
 
-router.get('/new/1', indexController.getNew)
+router.get('/new/:newId', indexController.getNew)
+
+router.get('/news', indexController.getNews)
+
+router.get('/stories', indexController.getStories)
 
 module.exports = router

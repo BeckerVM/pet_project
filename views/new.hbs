@@ -11,28 +11,12 @@
     <h5 class="amenidad__title">NOTICIA</h5>
     <div class="amenidad__content">
       <div class="amenidad__left">
-        <img src="https://www.matchcota.org/uploads/padrinos.png" alt="Noticia">
+        <img src="{{ new.url }} " alt="Noticia">
         <a href="/pets" class="amenidad__link"><i class="fas fa-arrow-left"></i> VER MAS NOTICIAS</a>
       </div>
       <div class="amenidad__right new">
-        <h6>¡SUMATE COMO PADRINO!</h6>
-        <p>El Programa de Padrinos consiste en la donación de un monto monetario mensual que se destina al cuidado de
-          tu
-          ahijado en el albergue. Matchcota se encarga de enviarte una actualización y fotos o videos de manera
-          mensual
-          y además te lleva a 3-4 visitas oficiales de padrinos en el año en nuestras movilidades. Esto es a parte de
-          las visitas que independientemente tú puedas realizar cuando gustes, para estar con él, jugar, pasearlo y
-          darle un poco de cariño.
-
-          Para el programa de padrinos, trabajamos actualmente con dos albergues: Vida Digna y Voz Animal. El primero
-          queda en Huachipa, a la altura del km 7 de la Autopista Ramiro Priale; y el segundo queda en Chilca, a la
-          altura del km 57 de la Panamericana Sur. Tú puedes elegir el que prefieras!
-
-          El Programa se ha abierto con un monto mínimo mensual de S/ 75, que le permitirá a los albergues cubrir
-          parte
-          de los costos en que incurren por el cuidado de los perritos y así mejorar su calidad de vida mientras
-          nosotros trabajamos en conseguirles un hogar! Si es que estuvieras interesado, envíanos un correa
-          padrinos@matchcota.org para darte más información :)</p>
+        <h6>{{ new.nombre }}</h6>
+        <p>{{ new.contenido }}</p>
       </div>
     </div>
   </div>

@@ -1,25 +1,48 @@
 <div class="dashboard">
-  <div class="dashboard__menu-vertical">
-    <div class="dash__logo">
-      <h3>HAPPYPET</h3>
-    </div>
-    <a href="#" class="dash__dash">
-      <i class="fas fa-tachometer-alt"></i><span>Inicio</span>
+  {{> adminmenu }}
+  <div class="dhome">
+    <a href="#" class="d__item d__item1">
+      <div class="d__iteminfo">
+        <span>40</span>
+        <span><strong>Mascotas</strong> libres para adoptar</span>
+      </div>
+      <i class="fas fa-dog"></i>
     </a>
-    <p>MENU</p>
-    <div class="dash__menu">
-      <a href="#"><i class="fas fa-dog"></i><span>Mascotas</span></a>
-      <a href="#"><i class="fas fa-walking"></i><span>Trabajadores</span></a>
-      <a href="#"><i class="far fa-file-word"></i><span>Postulaciones</span></a>
-      <a href="#"><i class="fas fa-paw"></i><span>Adopciones</span></a>
-      <a href="#"><i class="fas fa-money-check-alt"></i><span>Donaciones</span></a>
-      <a href="#"><i class="fas fa-newspaper"></i><span>Noticias</span></a>
-      <a href="#"><i class="fas fa-history"></i><span>Historias</span></a>
-      <a href="#"><i class="fas fa-user-cog"></i><span>Configuración</span></a>
-    </div>
+    <a href="#" class="d__item d__item2">
+      <div class="d__iteminfo">
+        <span>4</span>
+        <span><strong>Trabajadores</strong> registrados</span>
+      </div>
+      <i class="fas fa-walking"></i>
+    </a>
+    <a href="#" class="d__item d__item3">
+      <div class="d__iteminfo">
+        <span>4</span>
+        <span><strong>Postulaciones</strong> realizadas</span>
+      </div>
+      <i class="far fa-file-word"></i>
+    </a>
+    <a href="#" class="d__item d__item4">
+      <div class="d__iteminfo">
+        <span>15</span>
+        <span><strong>Adopciones</strong> completas</span>
+      </div>
+      <i class="fas fa-paw"></i>
+    </a>
+    <a href="#" class="d__item d__item5">
+      <div class="d__iteminfo">
+        <span>5</span>
+        <span><strong>Historias</strong> registradas</span>
+      </div>
+      <i class="fas fa-history"></i>
+    </a>
+    <a href="#" class="d__item d__item6">
+      <div class="d__iteminfo">
+        <span>4</span>
+        <span><strong>Noticias</strong> registradas</span>
+      </div>
+      <i class="fas fa-newspaper"></i>
+    </a>
   </div>
-  <div class="dashboard__menu-horizontal">
-
-  </div>
-  dashboard
+  {{> adminfooter }}
 </div>

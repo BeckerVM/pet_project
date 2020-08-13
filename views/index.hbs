@@ -28,25 +28,15 @@
     </div>
     <div class="home__amenidades">
       <div class="home__amenidades-content">
-        <h3 class="home__amenidades-title"><span>AMENIDADES</span> <strong>PARA ENMARCAR</strong></h3>
-        <div class="home__amenidad-1 home__amenidad">
-          <img src="https://www.matchcota.org/uploads/testimonio/testimonio-1-panchita.jpg" alt="Amenidad1">
-          <a href="/history/1">Ver Amenidad</a>
-        </div>
-        <div class="home__amenidad-2 home__amenidad">
-          <img src="https://www.matchcota.org/uploads/testimonio/testimonio-2-maya.jpg" alt="Amenidad2">
-          <a href="#">Ver Amenidad</a>
-        </div>
-        <div class="home__amenidad-3 home__amenidad">
-          <img src="https://www.matchcota.org/uploads/testimonio/test.jpg" alt="Amenidad3">
-          <a href="#">Ver Amenidad</a>
-        </div>
-        <div class="home__amenidad-4 home__amenidad">
-          <img src="https://www.matchcota.org/uploads/testimonio/testimonio-5-bonnie.jpg" alt="Amenidad4">
-          <a href="#">Ver Amenidad</a>
-        </div>
+        <h3 class="home__amenidades-title"><span>HISTORIAS</span> <strong>PARA ENMARCAR</strong></h3>
+        {{#each stories}}
+          <div class="home__amenidad-{{this.id}} home__amenidad">
+            <img src="{{ this.url }}" alt="{{this.nombre}}">
+            <a href="/history/{{this.id}}">Ver Historia</a>
+          </div>
+       {{/each}}
         <div class="home__amenidades-subtitle">
-          <a href="#"><i class="fas fa-paw"></i> Ver más amenidades aquí <i class="fas fa-arrow-right"></i></a>
+          <a href="/stories"><i class="fas fa-paw"></i> Ver más historias aquí <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -59,21 +49,15 @@
     <div class="home__news">
       <h3>ENTERATE DE <span>LO ULTIMO</span></h3>
       <div class="home__news-content">
-        <div class="home__new">
-          <img src="https://www.matchcota.org/uploads/noticia/protagonistas-del-cambio-2017.jpg" alt="new1">
-          <a href="#">Ver Noticia</a>
-        </div>
-        <div class="home__new">
-          <img src="https://www.matchcota.org/uploads/uahlp.jpg" alt="new2">
-          <a href="#">Ver Noticia</a>
-        </div>
-        <div class="home__new">
-          <img src="https://www.matchcota.org/uploads/padrinos.png" alt="new3">
-          <a href="/new/1">Ver Noticia</a>
-        </div>
+        {{#each news}}
+          <div class="home__new">
+            <img src="{{ this.url }}" alt="new">
+            <a href="/new/{{this.id}}">Ver Noticia</a>
+          </div>
+        {{/each}}
       </div>
       <div class="home__news-subtitle">
-        <a href="#"><i class="fas fa-paw"></i> Ver más noticias <i class="fas fa-arrow-right"></i></a>
+        <a href="/news"><i class="fas fa-paw"></i> Ver más noticias <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
