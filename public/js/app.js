@@ -34,6 +34,7 @@ const app = new Vue({
       if(this.url.includes('/pets')) {
         axios.post('http://localhost:5000/pets').then((response) => {
           this.petsWeb = response.data.pets
+          console.log(this.petsWeb)
         })
       }
     },

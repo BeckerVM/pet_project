@@ -703,3 +703,7 @@ body {
     transition: all .3s ease; }
   .pet__btn a:hover {
     background-color: #0898c0; }
+.mr-5 {
+  margin-right: .5rem;
+  font-size: 1.7rem;
+}

@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/home', (req, res) => {
+const { isAuthenticatedAdmin } = require('../helpers/auth')
+
+router.get('/home', isAuthenticatedAdmin, (req, res) => {
   res.render('admin_index')
 })
 

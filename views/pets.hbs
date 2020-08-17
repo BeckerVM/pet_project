@@ -19,7 +19,48 @@
       </div>
       <div class="pets__container">
         <div class="pets__filters">
-          FILTROS
+          <h6>Filtros</h6>
+          <div class="pets__filter">
+            <strong>Clase</strong>
+            <div class="pets__filter-content">
+              <input type="checkbox" >
+              <label for="">Perro</label>
+            </div>
+            <div class="pets__filter-content">
+              <input type="checkbox" >
+              <label for="">Gato</label>
+            </div>
+          </div>
+          <div class="pets__filter">
+            <strong>Pelaje</strong>
+            <div class="pets__filter-content">
+              <input type="checkbox" >
+              <label for="">Corto</label>
+            </div>
+            <div class="pets__filter-content">
+              <input type="checkbox" >
+              <label for="">Medio</label>
+            </div>
+            <div class="pets__filter-content">
+              <input type="checkbox" >
+              <label for="">Largo</label>
+            </div>
+          </div>
+          <div class="pets__filter">
+            <strong>Tamaño</strong>
+            <div class="pets__filter-content">
+              <input type="checkbox" >
+              <label for="">Pequeño</label>
+            </div>
+            <div class="pets__filter-content">
+              <input type="checkbox" >
+              <label for="">Mediano</label>
+            </div>
+            <div class="pets__filter-content">
+              <input type="checkbox" >
+              <label for="">Grande</label>
+            </div>
+          </div>
         </div>
         <div class="pets__pets">
           <a v-for="pet in petsWeb" :key="pet.id" :href="'http://localhost:5000/pet/' + pet.id" class="home__pet-pet b-m">

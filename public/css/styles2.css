@@ -95,72 +95,73 @@
   display: block;
   margin-top: 5rem;
 }
-
+/* LOGIN */
 .login {
-  padding: 2rem;
-  width: 100%;
+  position: relative !important;
+  visibility: visible !important;
+  opacity: 1;
+ 
 }
 
-.login__link {
-  text-decoration: none;
-  color: #eb2f64;
-  font-size: 1.6rem;
-  font-weight: bold;
-}
-
-.login__container-logo {
+.login__right {
   display: flex;
   justify-content: center;
-  padding: 2rem 0;
-  width: 100%;
-  margin-bottom: 8rem;
-}
-
-.login__container-form {
-  display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
 .login__form {
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+.login__msg {
+  text-align: center;
+}
+
+.login__logo {
   display: flex;
-  flex-wrap: wrap;
-  width: 35rem;
-  justify-content: flex-end;
-}
-
-.login__form button {
-  background-color: #00b2e2;
-  color: #fff;
-  transition: all .3s;
-  padding: .6rem 2rem;
-  border-radius: .4rem;
-  border: none;
-  cursor: pointer;
-}
-
-.login__form button:hover {
-  background-color: #eb2f64;
+  justify-content: center;
+  margin-bottom: 3rem;
 }
 
 
-.login__form-inputs {
-  box-shadow: .1rem .1rem .1rem .1rem rgba(0, 0, 0, .2);
+.login__logo img {
+  width: 25rem !important;
+  height: 8.5rem;
+}
+
+.login__input {
+  width: 30rem;
+  display: block;
   padding: 1.5rem;
+  border-radius: .4rem;
   margin-bottom: 2rem;
-  border-radius: .4rem;
-  width: 100%;
-}
-
-.login__form-inputs  input {
-  width: 100%;
-  margin-bottom: 1.5rem;
-  padding: .5rem 1rem;
-  box-shadow: 0.1rem 0.1rem 0.1rem .1rem rgba(0, 0, 0, .2);
+  font-size: 1.4rem;
   border: none;
-  font-size: 1.5rem;
-  border-radius: .4rem;
 }
 
+.login__container-btn  {
+  display: flex;
+  justify-content: center;
+}
+
+.login__container-btn button {
+  width: 100%;
+  background-color: #eb2f64;
+  border-radius: .4rem;
+  padding: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+  margin-top: 2rem;
+  border: none;
+  text-transform: uppercase;
+  transition: all .3s;
+}
+
+.login__container-btn button:hover {
+  background-color: #f84578;
+}
+/* LOGIN */
 /* DASHBOARD */
 .dashboard {
   padding-left: 25.6rem;
@@ -389,4 +390,35 @@ a {
 .dfooter span {
   font-size: 1rem;
   font-weight: bold;
+}
+
+.pets__filters {
+  padding-left: 2rem;
+}
+
+
+.pets__filters h6 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.pets__filter {
+  margin-bottom: 2rem;
+}
+
+.pets__filter strong {
+  margin-bottom: 1rem;
+  display: block;
+  font-size: 1.6rem;
+}
+
+.pets__filter-content {
+  display: flex;
+  margin-bottom: .5rem;
+  align-items: center;
+}
+
+.pets__filter-content label {
+  font-size: 1.6rem;
+  margin-left: 1rem;
 }
