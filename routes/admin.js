@@ -3,8 +3,22 @@ const router = express.Router()
 
 const { isAuthenticatedAdmin } = require('../helpers/auth')
 
-router.get('/home', isAuthenticatedAdmin, (req, res) => {
-  res.render('admin_index')
-})
+//CONTROLADORES
+const adminController = require('../controllers/admin_controller')
+const petController = require('../controllers/pet_controller')
+const newController = require('../controllers/new_controller')
+const historyController = require('../controllers/history_controller')
+
+router.get('/home', isAuthenticatedAdmin, adminController.getDataDashboardHome)
+router.get('/pets', petController.getPagePetsAdmin)
+router.get('/news', newController.getPageNewsAdmin)
+router.get('/stories', historyController.getPageStoriesAdmin)
+router.get('/pets/add', petController.getPagePetAdd)
+
+
+//POST - ADMIN
+router.post('/pets', petController.getAllPets)
+router.post('/news', newController.getAllNews)
+router.post('/stories', historyController.getAllStories)
 
 module.exports = router

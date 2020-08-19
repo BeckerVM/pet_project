@@ -1,0 +1,168 @@
+.dpets {
+  padding: 3rem 1rem;
+
+  margin-top: -3.6rem;
+}
+
+.list { 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: table;
+  white-space: nowrap;
+  width: 100%;
+  margin-bottom: 8rem;
+}
+
+.list li {
+  
+  background-color: #f0f0f0;
+  display: table-row;
+  color: #5c5c5c;
+  font-size: 1.6rem;
+
+}
+
+.list li:nth-child(odd) {
+  
+  background-color: #f2f2f2;
+  display: table-row;
+  color: #5c5c5c;
+
+}
+
+.list li:nth-child(even) {
+  
+  background-color: #e8e8e8;
+  display: table-row;
+  color: #5c5c5c;
+
+}
+
+.list li:nth-child(even):hover {
+  
+  background-color: #dadada;
+
+}
+
+.list li:nth-child(1) span:first-child {
+  
+  border-top-left-radius: .6rem;
+  
+}
+
+.list li:nth-child(1) span:last-child {
+  
+  border-top-right-radius: .6rem;
+  
+}
+
+
+.list li:nth-child(1) {
+  
+  background-color: #201c2b;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #b8b5c0;
+
+  
+}
+
+.list li:nth-child(1) span {
+  
+  border-bottom: .2rem solid #eb2f64;
+  padding: 1.4rem
+  
+}
+
+.list img {
+  width: 6rem;
+  height: 6rem;
+}
+
+.list span {
+  
+  text-align: left;
+  display: table-cell;
+  padding: .6rem;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.btn__pets {
+  text-decoration: none;
+  color: #fff;
+  padding: .3rem 1rem;
+  border-radius: .4rem;
+}
+
+.btn__pets1 {
+  background-color: #3186d6;
+}
+
+.btn__pets2 {
+  background-color: #e9dd34;
+}
+
+.btn__pets3 {
+  background-color: crimson;
+}
+
+.dpets__add {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.dpets__add a {
+  text-decoration: none;
+  color: #fff;
+  padding: .5rem .7rem;
+  border-radius: .4rem;
+  font-size: 1.6rem;
+  background-color: #eb2f64;
+}
+
+.dpets__serch {
+  border-top: .1rem solid #fff;
+  border-bottom: .1rem solid #fff;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.dpets__serch input {
+  padding: .5rem 1rem;
+  border-radius: .3rem;
+  border: none;
+  width: 25rem;
+  font-size: 1.4rem;
+
+}
+
+/*FILE UPLOAD */
+
+.dpets__title {
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 1;
+  color: #eb2f64;
+  margin-bottom: 0;
+}
+
+.dpets__subtitle {
+  font-size: 1.4rem;
+  color: #5f6982;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.dpets__content {
+  padding: 0 20rem;
+  margin-bottom: 3rem;
+}
+.dpetsinput {
+  font-size-adjust: 1.4rem !important;
+}
+
+

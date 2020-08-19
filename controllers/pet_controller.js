@@ -4,6 +4,14 @@ const getPet = (req, res) => {
   res.render('pet')
 }
 
+const getPagePetsAdmin = (req, res) => {
+  res.render('admin_pets', { url: 'MASCOTAS'})
+}
+
+const getPagePetAdd = (req, res) => {
+  res.render('admin_pet_add', { url: 'AGREGAR NUEVA MASCOTA' })
+}
+
 const getDataPetById = (req, res) => {
   const { petId } = req.params
 
@@ -46,5 +54,7 @@ module.exports = {
   getPet,
   getPets,
   getAllPets,
-  getPetsByAge
+  getPetsByAge,
+  getPagePetsAdmin,
+  getPagePetAdd
 }

@@ -1,0 +1,38 @@
+<div class="dashboard">
+  {{> adminmenu }}
+  <div class="dpets">
+    <div class="dpets__add">
+      <a href="#"><i class="fas fa-plus"></i> Agregar Nueva Noticia</a>
+    </div>
+
+    <div class="dpets__serch">
+      <input type="text" placeholder="Buscar Noticia ...">
+    </div>
+
+    <ul class="list">
+      <li>
+        <span>ID</span>
+        <span>Titulo</span>
+        <span>Imagen</span>
+        <span>Publicado</span>
+        <span>Acciones</span>
+        <span></span>
+      </li> 
+      <li v-for="nw in newsWeb" :key="nw.id">
+        <span>[[ nw.id ]] </span>
+        <span>[[ nw.nombre]] </span>
+        <span>
+          <img :src="nw.url" alt="Noticia">
+        </span>
+        <span>[[ nw.fecha ]]</span>
+        <span>
+          <div class="btn-group btn-group-xs" role="group" aria-label="...">
+            <a href="#" class="btn__pets btn__pets2"><i class="fas fa-edit"></i> Editar</a>
+            <a href="#" class="btn__pets btn__pets3"><i class="fas fa-trash"></i> Eliminar</a>
+          </div>
+        </span>
+        <span></span>
+      </li>
+  </div>
+  {{> adminfooter }}
+</div>

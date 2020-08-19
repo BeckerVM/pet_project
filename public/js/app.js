@@ -7,16 +7,37 @@ const app = new Vue({
     petWeb: { nombre: '', informacion: '', historia: '', sexo: '', pelaje: '', tamano: '' },
     petImagesWeb: [],
     petImageWebSelected: '',
-    petsWeb: []
+    petsWeb: [],
+    newsWeb: [],
+    storiesWeb: []
   },
   created: function() {
     this.url = window.location.href
     this.getPetbyId()
     this.getPets()
     this.getPetsByAge()
+    this.getNewsAdmin()
   },
   methods: {
-    //INICIO - MASCOTAS
+    //INICIO - ADMIN
+    getNewsAdmin: function() {
+      if(this.url.includes('/dashboard/news')) {
+        axios.post('http://localhost:5000/dashboard/news').then((response) => {
+          this.newsWeb = response.data.news
+          console.log(this.newsWeb)
+        })
+      }
+    },
+    getNewsAdmin: function() {
+      if(this.url.includes('/dashboard/stories')) {
+        axios.post('http://localhost:5000/dashboard/stories').then((response) => {
+          this.storiesWeb = response.data.stories
+          console.log(this.storiesWeb)
+        })
+      }
+    },
+    //FIN - ADMIN
+    //INICIO - MASCOTAS - CLIENT
     getPetbyId: function() {
 
       if(this.url.includes('/pet/')) {//PARA LA INFO DE LA MASCOTA INDIVIDUAL

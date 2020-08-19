@@ -1,44 +1,44 @@
 <div class="dashboard">
   {{> adminmenu }}
   <div class="dhome">
-    <a href="#" class="d__item d__item1">
+    <a href="/dashboard/pets" class="d__item d__item1">
       <div class="d__iteminfo">
-        <span>40</span>
+        <span>{{ data.quantityPets }}</span>
         <span><strong>Mascotas</strong> libres para adoptar</span>
       </div>
       <i class="fas fa-dog"></i>
     </a>
     <a href="#" class="d__item d__item2">
       <div class="d__iteminfo">
-        <span>4</span>
+        <span>{{ data.quantityWorkers }}</span>
         <span><strong>Trabajadores</strong> registrados</span>
       </div>
       <i class="fas fa-walking"></i>
     </a>
     <a href="#" class="d__item d__item3">
       <div class="d__iteminfo">
-        <span>4</span>
+        <span>{{ data.quantityPostulations }}</span>
         <span><strong>Postulaciones</strong> realizadas</span>
       </div>
       <i class="far fa-file-word"></i>
     </a>
     <a href="#" class="d__item d__item4">
       <div class="d__iteminfo">
-        <span>15</span>
+        <span>{{ data.quantityAdoptions }}</span>
         <span><strong>Adopciones</strong> completas</span>
       </div>
       <i class="fas fa-paw"></i>
     </a>
-    <a href="#" class="d__item d__item5">
+    <a href="/dashboard/stories" class="d__item d__item5">
       <div class="d__iteminfo">
-        <span>5</span>
+        <span>{{ data.quantityStories }}</span>
         <span><strong>Historias</strong> registradas</span>
       </div>
       <i class="fas fa-history"></i>
     </a>
-    <a href="#" class="d__item d__item6">
+    <a href="/dashboard/news" class="d__item d__item6">
       <div class="d__iteminfo">
-        <span>4</span>
+        <span>{{ data.quantityNews }}</span>
         <span><strong>Noticias</strong> registradas</span>
       </div>
       <i class="fas fa-newspaper"></i>

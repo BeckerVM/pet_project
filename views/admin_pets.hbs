@@ -1,0 +1,46 @@
+<div class="dashboard">
+  {{> adminmenu }}
+  <div class="dpets">
+    <div class="dpets__add">
+      <a href="/dashboard/pets/add"><i class="fas fa-plus"></i> Agregar Nueva Mascota</a>
+    </div>
+
+    <div class="dpets__serch">
+      <input type="text" placeholder="Buscar Mascota ...">
+    </div>
+
+    <ul class="list">
+      <li>
+        <span>ID</span>
+        <span>Nombre</span>
+        <span>Foto</span>
+        <span>Sexo</span>
+        <span></span>
+        <span>Clase</span>
+        <span>Estado</span>
+        <span>Acciones</span>
+        <span></span>
+      </li> 
+      <li v-for="pet in petsWeb" :key="pet.id">
+        <span>[[ pet.id]] </span>
+        <span>[[ pet.nombre ]] </span>
+        <span> 
+          <img :src="pet.photo" alt="Mascota">
+        </span>
+        <span>[[ pet.sexo ]] </span>
+        <span>[[ pet.edad ]] </span>
+        <span>[[ pet.clase ]] </span>
+        <span><span class="label label-default">[[ pet.estado ]]</span></span>
+        <span>
+          <div class="btn-group btn-group-xs" role="group" aria-label="...">
+            <a href="#" class="btn__pets btn__pets1"><i class="fas fa-plus"></i> Agregar Fotos</a>
+            <a href="#" class="btn__pets btn__pets2"><i class="fas fa-edit"></i> Editar</a>
+            <a href="#" class="btn__pets btn__pets3"><i class="fas fa-trash"></i> Eliminar</a>
+          </div>
+        </span>
+        <span></span>
+      
+    </ul>
+  </div>
+  {{> adminfooter }}
+</div>

@@ -241,11 +241,24 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column; }
-    .donation__input input {
+    .donation__input input, .donation__input select, .donation__input textarea {
       padding: .3rem;
-      font-size: 1.4rem; }
+      font-size: 1.3rem;
+      border: .1rem solid #f1f1f1; 
+    }
+    .donation__input input.dp {
+      padding: .4rem;
+    }
+    
+      .donation__input textarea {
+        max-height: 10rem;
+        min-height: 10rem;
+        max-width: 67.3rem;
+        min-width: 67.7rem;
+        font-size: 1.8rem;
+      }
     .donation__input label {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       margin-bottom: .5rem; }
   .donation__file {
     margin-bottom: 2rem; }
