@@ -329,6 +329,10 @@ body {
     font-style: italic;
     margin-top: 1rem;
     font-weight: bold; }
+  .home__pet-pet img {
+    width: 23rem;
+    height: 26.5rem;
+  }
 
 .home__pet-pet:hover .home__pet-sub {
   display: block; }

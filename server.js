@@ -1,6 +1,8 @@
 const express = require('express')
 const hbs = require('express-handlebars')
 const cors = require('cors')
+const multer = require('multer')
+const path = require('path')
 const morgan = require('morgan')
 const session = require('express-session')
 const passport = require('passport')
@@ -26,10 +28,18 @@ app.use(express.static('public'))
 app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: 'secret', resave: true, saveUninitialized: true }))
 app.use(passport.initialize())
 app.use(passport.session())
+
+const storage = multer.diskStorage({
+  destination: path.join(__dirname, 'public/uploads'),
+  filename: (req, file, cb) => {
+    cb(null, new Date().getTime() + path.extname(file.originalname))
+  }
+})
+app.use(multer({ storage }).single('imagen'))
 
 app.use((req, res, next) => {
   res.locals.user = req.user || null

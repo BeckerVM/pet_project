@@ -20,5 +20,6 @@ router.get('/pets/add', petController.getPagePetAdd)
 router.post('/pets', petController.getAllPets)
 router.post('/news', newController.getAllNews)
 router.post('/stories', historyController.getAllStories)
+router.post('/pets/add', petController.addPet)
 
 module.exports = router
