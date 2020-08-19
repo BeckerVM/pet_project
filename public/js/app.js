@@ -1,3 +1,17 @@
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#blah')
+        .attr('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+
 const app = new Vue({
   el: '#app',
   delimiters: ["[[", "]]"],
@@ -9,9 +23,11 @@ const app = new Vue({
     petImageWebSelected: '',
     petsWeb: [],
     newsWeb: [],
-    storiesWeb: []
+    storiesWeb: [],
+    months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+
   },
-  created: function() {
+  created: function () {
     this.url = window.location.href
     this.getPetbyId()
     this.getPets()
@@ -20,16 +36,16 @@ const app = new Vue({
   },
   methods: {
     //INICIO - ADMIN
-    getNewsAdmin: function() {
-      if(this.url.includes('/dashboard/news')) {
+    getNewsAdmin: function () {
+      if (this.url.includes('/dashboard/news')) {
         axios.post('http://localhost:5000/dashboard/news').then((response) => {
           this.newsWeb = response.data.news
           console.log(this.newsWeb)
         })
       }
     },
-    getNewsAdmin: function() {
-      if(this.url.includes('/dashboard/stories')) {
+    getNewsAdmin: function () {
+      if (this.url.includes('/dashboard/stories')) {
         axios.post('http://localhost:5000/dashboard/stories').then((response) => {
           this.storiesWeb = response.data.stories
           console.log(this.storiesWeb)
@@ -38,29 +54,29 @@ const app = new Vue({
     },
     //FIN - ADMIN
     //INICIO - MASCOTAS - CLIENT
-    getPetbyId: function() {
+    getPetbyId: function () {
 
-      if(this.url.includes('/pet/')) {//PARA LA INFO DE LA MASCOTA INDIVIDUAL
+      if (this.url.includes('/pet/')) {//PARA LA INFO DE LA MASCOTA INDIVIDUAL
         const petId = this.url.split('/')[4]
 
         axios.post(`http://localhost:5000/pet/${petId}`).then((response) => {
           this.petWeb = response.data.pet[0]
           this.petImagesWeb = response.data.petImages,
-          this.petImageWebSelected = this.petImagesWeb[0]
+            this.petImageWebSelected = this.petImagesWeb[0]
           console.log(this.petImagesWeb)
         })
       }
     },
-    getPets: function() {
-      if(this.url.includes('/pets')) {
+    getPets: function () {
+      if (this.url.includes('/pets')) {
         axios.post('http://localhost:5000/pets').then((response) => {
           this.petsWeb = response.data.pets
           console.log(this.petsWeb)
         })
       }
     },
-    getPetsByAge: function() {
-      if(this.url.includes('/pets/')) {
+    getPetsByAge: function () {
+      if (this.url.includes('/pets/')) {
         const petAge = this.url.split('/')[4]
 
         axios.post(`http://localhost:5000/pets/${petAge}`).then((response) => {
@@ -68,7 +84,7 @@ const app = new Vue({
         })
       }
     },
-    changePetImageWeb: function(petImageWeb) {
+    changePetImageWeb: function (petImageWeb) {
       this.petImageWebSelected = petImageWeb
       console.log(this.petImageWebSelected)
     },
@@ -141,14 +157,14 @@ const app = new Vue({
 
 
 
-    openMenu: function() {
+    openMenu: function () {
       const bod = document.getElementById('body')
       const menu = document.getElementById('menu')
       bod.classList.add('scroll')
       menu.classList.add('open')
       this.openMenuVertical = true
     },
-    closeMenu: function() {
+    closeMenu: function () {
       const bod = document.getElementById('body')
       const menu = document.getElementById('menu')
       bod.classList.remove('scroll')
@@ -156,18 +172,18 @@ const app = new Vue({
       this.openMenuVertical = false
     },
     //INICIO - DONACIONES
-    openDonation: function() {
+    openDonation: function () {
       console.log('Holis')
       const bod = document.getElementById('body')
       const donation = document.getElementById('donation')
       bod.classList.add('scroll')
       donation.classList.add('open_donation')
     },
-    closeDonation: function() {
+    closeDonation: function () {
       const bod = document.getElementById('body')
       const donation = document.getElementById('donation')
 
-      if(!this.openMenuVertical) {
+      if (!this.openMenuVertical) {
         bod.classList.remove('scroll')
       }
 

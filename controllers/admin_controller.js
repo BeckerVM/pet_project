@@ -1,4 +1,12 @@
 const connection = require('../db/connection')
+const cloudinary = require('cloudinary').v2
+const fs = require('fs-extra')
+
+cloudinary.config({ 
+  cloud_name: 'dripm8g4s', 
+  api_key: '537988747936494', 
+  api_secret: 'eQn7ynR6lGimxTxBqU9qVB16FtM' 
+})
 
 const getDataDashboardHome = (req, res) => {
 
@@ -36,6 +44,23 @@ const getDataDashboardHome = (req, res) => {
   })
 }
 
+const addNewAmenidad = async (req, res) => {
+  const { titulo, contenido, dia, mes, anio, tipo } = req.body
+  const fecha = `${dia} ${mes} ${anio}`
+  const resultc = await cloudinary.uploader.upload(req.file.path)
+
+  connection.query(
+    'INSERT INTO amenidades (nombre, tipo, fecha, contenido, url) VALUES (?, ?, ?, ?, ?)', 
+    [titulo, tipo, fecha, contenido, resultc.url], 
+    async (err, result) => {
+
+    if(err) throw err;
+      await fs.unlink(req.file.path)
+      res.redirect('/dashboard/stories')
+    })
+}
+
 module.exports = {
-  getDataDashboardHome
+  getDataDashboardHome,
+  addNewAmenidad
 }

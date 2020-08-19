@@ -1,0 +1,58 @@
+<div class="dashboard">
+  {{> adminmenu }}
+
+  <div class="dpets">
+    <h2 class="dpets__title">Agrega Una Nueva Historia</h2>
+    <p class="dpets__subtitle">Una mascota, una <b>Nueva Familia</b></p>
+
+    <!-- Upload  -->
+    <div class="dpets__content">
+      <form action="/dashboard/stories/add" method="POST" enctype="multipart/form-data" class="donation__inputs">
+        <input type="hidden" value="Historia" name="tipo">
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="nombre">TITULO</label>
+            <input type="text" placeholder="Titulo" class="dp" name="titulo">
+          </div>
+        </div>
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="dia">DÍA</label>
+            <select name="dia" id="">
+              <option  v-for="i in 31" :value="i" :key="i">[[ i ]]</option>
+            </select>
+          </div>
+          <div class="donation__input">
+            <label for="mes">MES</label>
+            <select name="mes" id="">
+              <option v-for="month in months" :value="month">[[ month ]]</option>
+            </select>
+          </div>
+          <div class="donation__input">
+            <label for="anio">AÑO</label>
+            <input type="text" placeholder="Año" class="dp" name="anio">
+          </div>
+        </div>
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="contenido">CONTENIDO</label>
+            <textarea name="contenido" id="" cols="30" rows="7">
+
+            </textarea>
+          </div>
+        </div>
+        <div class="donation__file">
+          <label for="file">SELECCIONA UNA IMAGEN <i class="fas fa-upload"></i></label>
+          <input type="file" id="file" name="imagen" onchange="readURL(this);">
+        </div>
+        <div class="donation__imgfile">
+          <img id="blah" src="http://placehold.it/180" alt="your image" />
+        </div>
+        <div class="donation__submit">
+          <button type="submit">GUARDAR</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  {{> adminfooter }}
+</div>

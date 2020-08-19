@@ -73,8 +73,11 @@
           </div>
         </div>
         <div class="donation__file">
-          <label for="file">Selecciona <i class="fas fa-upload"></i></label>
-          <input type="file" id="file" name="imagen">
+          <label for="file">SELECCIONA UNA IMAGEN <i class="fas fa-upload"></i></label>
+          <input type="file" id="file" name="imagen" onchange="readURL(this);">
+        </div>
+        <div class="donation__imgfile">
+          <img id="blah" src="http://placehold.it/180" alt="your image" />
         </div>
         <div class="donation__submit">
           <button type="submit">GUARDAR</button>
@@ -83,5 +86,4 @@
     </div>
   </div>
   {{> adminfooter }}
-  <script src="/js/upload.js"></script>
 </div>

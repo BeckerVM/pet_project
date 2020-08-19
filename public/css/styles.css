@@ -262,6 +262,14 @@ body {
       margin-bottom: .5rem; }
   .donation__file {
     margin-bottom: 2rem; }
+    .donation__imgfile {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .donation__imgfile img {
+      max-width: 18rem;
+    }
     .donation__file input {
       display: none; }
     .donation__file label {

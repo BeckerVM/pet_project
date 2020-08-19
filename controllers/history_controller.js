@@ -15,5 +15,9 @@ const getAllStories = (req, res) => {
   })
 }
 
+const getPageAddHistoryAdmin = (req, res) => {
+  res.render('admin_history_add', { url: 'AGREGAR HISTORIA' })
+}
 
-module.exports = { getPageStoriesAdmin, getAllStories }
+
+module.exports = { getPageStoriesAdmin, getAllStories, getPageAddHistoryAdmin }
