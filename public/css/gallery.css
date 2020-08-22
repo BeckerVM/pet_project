@@ -1,0 +1,33 @@
+.petadmin__photos {
+  justify-content: center !important;
+}
+
+.petadmin__photos img {
+  border-radius: .4rem !important;
+}
+
+.petadmin__photos-content {
+  width: 18rem;
+  height: 18rem;
+}
+
+.petadmin__photos-content span {
+  background-color: crimson;
+  padding: .5rem 1.4rem;
+  border-radius: .4rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.petadmin__photos-content:hover a{
+  border: .3rem solid crimson;
+  border-radius: .4rem;
+}
+
+.addp {
+  padding: 0 40rem;
+}
+
+.dformpetaddphoto {
+  margin-bottom: 4rem;
+}

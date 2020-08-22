@@ -12,6 +12,7 @@ function readURL(input) {
 }
 
 
+
 const app = new Vue({
   el: '#app',
   delimiters: ["[[", "]]"],
@@ -33,6 +34,7 @@ const app = new Vue({
     this.getPets()
     this.getPetsByAge()
     this.getNewsAdmin()
+    this.getStoriesAdmin()
   },
   methods: {
     //INICIO - ADMIN
@@ -44,7 +46,7 @@ const app = new Vue({
         })
       }
     },
-    getNewsAdmin: function () {
+    getStoriesAdmin: function () {
       if (this.url.includes('/dashboard/stories')) {
         axios.post('http://localhost:5000/dashboard/stories').then((response) => {
           this.storiesWeb = response.data.stories

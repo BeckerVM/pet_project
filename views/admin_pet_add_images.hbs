@@ -1,0 +1,31 @@
+<div class="dashboard">
+  {{> adminmenu }}
+
+  <div class="dpets">
+    <h2 class="dpets__title">Agrega Una Nueva Fotos</h2>
+    <p class="dpets__subtitle">Para Esta <b>Mascota</b></p>
+
+    <form action="/dashboard/pets/images/add/{{idmascota}}" enctype="multipart/form-data" method="POST" class="dformpetaddphoto">
+      <div class="donation__file addp">
+        <label for="file">SELECCIONA <i class="fas fa-upload"></i></label>
+        <input type="file" id="file" name="imagen" onchange="readURL(this);">
+      </div>
+      <div class="donation__imgfile">
+        <img id="blah" src="http://placehold.it/180" alt="your image" />
+      </div>
+      <div class="donation__submit">
+        <button type="submit">AÑADIR</button>
+      </div>
+    </form>
+    <!-- Upload  -->
+    <div class="news__content petadmin__photos">
+      {{#each images}}
+        <div class="home__new news__new petadmin__photos-content">
+          <img src="{{ this.url}}" alt="Mascota">
+          <a href="/dashboard/pets/images/delete/{{this.idmascota}}/{{this.id}}"><span>Eliminar</span></a>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+  {{> adminfooter }}
+</div>

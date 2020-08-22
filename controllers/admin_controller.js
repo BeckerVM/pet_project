@@ -56,7 +56,13 @@ const addNewAmenidad = async (req, res) => {
 
     if(err) throw err;
       await fs.unlink(req.file.path)
-      res.redirect('/dashboard/stories')
+      
+      if(tipo === 'Historia') {
+        res.redirect('/dashboard/stories')
+      } else {
+        res.redirect('/dashboard/news')
+      }
+      
     })
 }
 

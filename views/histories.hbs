@@ -10,22 +10,12 @@
   <div class="amenidad">
     <h5 class="amenidad__title">HISTORIAS</h5>
     <div class="news__content">
-      <div class="home__new news__new stories__history">
-        <img src="https://www.matchcota.org/uploads/testimonio/testimonio-1-panchita.jpg" alt="new1">
-        <a href="#">Ver Historia</a>
-      </div>
-      <div class="home__new news__new stories__history">
-        <img src="https://www.matchcota.org/uploads/testimonio/testimonio-2-maya.jpg" alt="new2">
-        <a href="#">Ver Historia</a>
-      </div>
-      <div class="home__new news__new stories__history">
-        <img src="https://www.matchcota.org/uploads/testimonio/test.jpg" alt="new3">
-        <a href="/new/1">Ver Historia</a>
-      </div>
-      <div class="home__new news__new stories__history">
-        <img src="https://www.matchcota.org/uploads/testimonio/testimonio-5-bonnie.jpg" alt="new1">
-        <a href="#">Ver Historia</a>
-      </div>
+      {{#each stories}}
+        <div class="home__new news__new stories__history">
+          <img src="{{this.url}}" alt="new1">
+          <a href="/history/{{this.id}}">Ver Historia</a>
+        </div>
+      {{/each}}
     </div>
   </div>
 

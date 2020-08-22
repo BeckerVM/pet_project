@@ -1,0 +1,81 @@
+<div class="dashboard">
+  {{> adminmenu }}
+
+  <div class="dpets">
+    <h2 class="dpets__title">Edita Una Mascota</h2>
+    <p class="dpets__subtitle">Que está esperando una <b>Nueva Familia</b></p>
+
+    <!-- Upload  -->
+    <div class="dpets__content">
+      <form action="/dashboard/pets/edit/{{ pet.id }}" method="POST" class="donation__inputs">
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="nombre">NOMBRE</label>
+            <input type="text" placeholder="Nombre" class="dp" name="nombre"value="{{ pet.nombre }}">
+          </div>
+          <div class="donation__input">
+            <label for="sexo">SEXO</label>
+            <select name="sexo">
+              <option value="M" {{#if masculino }} selected {{/if}}>M</option>
+              <option value="F" {{#if femenino }} selected {{/if}}>F</option>
+            </select>
+          </div>
+        </div>
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="tamano">TAMAÑO</label>
+            <select name="tamano">
+              <option value="Grande" {{#if tgrande }} selected {{/if}}>Grande</option>
+              <option value="Mediano" {{#if tmediano }} selected {{/if}}>Mediano</option>
+              <option value="Pequeño" {{#if tpequeno }} selected {{/if}}>Pequeño</option>
+            </select>
+          </div>
+          <div class="donation__input">
+            <label for="clase">CLASE</label>
+            <select name="clase">
+              <option value="Perro" {{#if perro }} selected {{/if}}>Perro</option>
+              <option value="Gato" {{#if gato }} selected {{/if}}>Gato</option>
+            </select>
+          </div>
+        </div>
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="pelaje">PELAJE</label>
+            <select name="pelaje" value="{{ pet.pelaje }}">
+              <option value="Corto" {{#if pcorto }} selected {{/if}}>Corto</option>
+              <option value="Medio" {{#if pmediano }} selected {{/if}}>Medio</option>
+              <option value="Grande" {{#if pgrande }} selected {{/if}}>Grande</option>
+            </select>
+          </div>
+          <div class="donation__input">
+            <label for="crecimiento">CRECIMIENTO</label>
+            <select name="crecimiento" value="{{ pet.crecimiento }}">
+              <option value="Cachorro" {{#if cachorro }} selected {{/if}}>Cachorro</option>
+              <option value="Adulto" {{#if adulto }} selected {{/if}}>Adulto</option>
+              <option value="Senior" {{#if senior }} selected {{/if}}>Senior</option>
+            </select>
+          </div>
+        </div>
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="informacion">INFORMACIÓN</label>
+            <textarea name="informacion" id="" cols="30" rows="7">{{ pet.informacion }}</textarea>
+          </div>
+        </div>
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="historia">HISTORIA</label>
+            <textarea name="historia" id="" cols="30" rows="7">{{ pet.historia }}</textarea>
+          </div>
+        </div>
+        <div class="donation__imgfile">
+          <img id="blah" src="{{ pet.photo }} " alt="Pet" />
+        </div>
+        <div class="donation__submit">
+          <button type="submit">ACTUALIZAR</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  {{> adminfooter }}
+</div>

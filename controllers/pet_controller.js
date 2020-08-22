@@ -21,6 +21,54 @@ const getPagePetAdd = (req, res) => {
   res.render('admin_pet_add', { url: 'AGREGAR NUEVA MASCOTA' })
 }
 
+const getPagePetAddImage = (req, res) => {
+  const { petId } = req.params 
+  connection.query('SELECT * FROM imagenesmascotas WHERE idmascota = ?', [petId], (err, images) => {
+    if (err) throw err;
+    res.render('admin_pet_add_images' , { url: 'AGREGAR FOTOS MASCOTA', images, idmascota: petId })
+  })
+}
+
+const getPagePetEdit = (req, res) => {
+  const { petId } = req.params
+
+  connection.query('SELECT * FROM mascotas where id = ?', [petId], (err, pets) => {
+    if (err) throw err
+    let pet = pets[0]
+    res.render('admin_pet_edit', { 
+      url: 'EDITAR MASCOTA',
+      pet,
+      nombre: pet.nombre, femenino: pet.sexo === 'F' ? true : false,
+      masculino: pet.sexo === 'M' ? true : false,
+      perro: pet.clase === 'Perro' ? true : false,
+      gato: pet.clase === 'Gato' ? true : false,
+      tgrande: pet.tamano === 'Grande' ? true : false,
+      tmediano: pet.tamano === 'Mediano' ? true : false,
+      tpequeno: pet.tamano === 'Pequeño' ? true : false,
+      pgrande: pet.pelaje === 'Grande' ? true : false,
+      pmediano: pet.pelaje === 'Medio' ? true : false,
+      pcorto: pet.pelaje === 'Corto' ? true : false,
+      cachorro: pet.crecimiento === 'Cachorro' ? true : false,
+      adulto: pet.crecimiento === 'Adulto' ? true : false,
+      senior: pet.crecimiento === 'Senior' ? true : false,
+    })
+  })
+}
+
+const updatePet = (req, res) => {
+  const { petId } = req.params
+  const { nombre, informacion, sexo, tamano, pelaje, historia, crecimiento, clase } = req.body
+  connection.query(
+    'UPDATE mascotas SET nombre = ?, informacion = ?, sexo = ?, pelaje = ?, tamano = ?, historia = ?, clase = ?, crecimiento = ? WHERE id = ?',
+    [nombre, informacion, sexo, pelaje, tamano, historia, clase, crecimiento, petId],
+    (err, results) => {
+      if (err) throw err;
+      res.redirect('/dashboard/pets')
+    }
+  )
+
+}
+
 const addPet = async (req, res) => {
   const { nombre, informacion, sexo, tamano, pelaje, historia, crecimiento, clase } = req.body
   const resultc = await cloudinary.uploader.upload(req.file.path)
@@ -42,6 +90,36 @@ const addPet = async (req, res) => {
       )
     }
   )
+}
+
+const addImagePet = async (req, res) => {
+  const { petId } = req.params
+  const resultc = await cloudinary.uploader.upload(req.file.path)
+
+  connection.query(
+    'INSERT INTO imagenesmascotas (idmascota, url) VALUES (?, ?)',
+    [petId, resultc.url],
+    async (err) => {
+      if (err) throw err;
+
+      await fs.unlink(req.file.path)
+      res.redirect('/dashboard/pets/images/add/' + petId)
+    }
+  )
+}
+
+const deleteImagePet = (req, res) => {
+  const { petId, imageId } = req.params
+
+  connection.query(
+    'DELETE FROM imagenesmascotas where id = ?',
+    [imageId],
+    (err, results) => {
+      if (err) throw err;
+      res.redirect('/dashboard/pets/images/add/' + petId)
+    }
+  )
+  
 }
 
 const getDataPetById = (req, res) => {
@@ -89,5 +167,10 @@ module.exports = {
   getPetsByAge,
   getPagePetsAdmin,
   getPagePetAdd,
-  addPet
+  getPagePetEdit,
+  addPet,
+  updatePet,
+  getPagePetAddImage,
+  deleteImagePet,
+  addImagePet
 }

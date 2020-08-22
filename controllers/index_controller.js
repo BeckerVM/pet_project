@@ -50,9 +50,12 @@ const getNews = (req, res) => {
 
 }
 
-
 const getStories = (req, res) => {
-  res.render('histories')
+  connection.query('SELECT * FROM amenidades where tipo = ?', ['Historia'], (err, stories) => {
+    if(err) throw err
+
+    res.render('histories', { stories })
+  })
 }
 
 module.exports = {

@@ -4,6 +4,10 @@ const getPageNewsAdmin = (req, res) => {
   res.render('admin_news', { url: 'NOTICIAS' })
 }
 
+getPageAddNewAdmin = (req, res) => {
+  res.render('admin_new_add', { url: 'AGREGAR NOTICIA'})
+}
+
 const getAllNews = (req, res) => {
   
   connection.query('SELECT * FROM amenidades where tipo = ?', ['Noticia'], (err, news) => {
@@ -15,4 +19,4 @@ const getAllNews = (req, res) => {
   })
 }
 
-module.exports = { getPageNewsAdmin, getAllNews }
+module.exports = { getPageNewsAdmin, getAllNews, getPageAddNewAdmin }

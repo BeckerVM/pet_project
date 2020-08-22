@@ -166,7 +166,7 @@
 .dashboard {
   padding-left: 25.6rem;
   padding-top: 13.6rem;
-  background-color: #ebedef;
+  background-color: #f1f1f1;
   width: 100%;
 }
 
@@ -380,7 +380,7 @@ a {
 }
 
 .dfooter {
-  background-color: #fff;
+  background-color: #303c54;
   padding: 2rem;
   display: flex;
   align-items: center;
@@ -390,6 +390,7 @@ a {
 .dfooter span {
   font-size: 1rem;
   font-weight: bold;
+  color: #fff;
 }
 
 .pets__filters {
