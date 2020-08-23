@@ -10,10 +10,6 @@
   <div class="donation__right">
     <div class="donation__form">
       <h5>DONA AL PROYECTO</h5>
-      <div class="donation__content-btn">
-        <p class="donation__btn">DEPOSITA EN CUENTA</p>
-      </div>
-
       <div class="donation__accounts">
         <div class="donation__account">
           <span>Cuenta de ahorro BCP:</span>
@@ -25,43 +21,46 @@
         </div>
       </div>
       <p class="donation__msg">
-        Si ya realizaste una donación déjanos aquí tus datos y adjunta el voucher del depósito para poderte enviar una
-        postal digital como agradecimiento:
+        Si ya realizaste una donación déjanos aquí tus datos y adjunta el voucher del depósito para poderte demostrar
+        nuestro agradecimiento:
       </p>
-      <form class="donation__inputs">
+      <form class="donation__inputs" action="/donation" method="POST" enctype="multipart/form-data">
         <div class="donation__container-inputs">
           <div class="donation__input">
-            <label for="">Nombre y Apellido</label>
-            <input type="text">
+            <label for="">Nombres y Apellidos</label>
+            <input type="text" name="nombre">
           </div>
           <div class="donation__input">
             <label for="">Dirección</label>
-            <input type="text">
+            <input type="text" name="direccion">
           </div>
         </div>
         <div class="donation__container-inputs">
           <div class="donation__input">
             <label for="">DNI</label>
-            <input type="text">
+            <input type="text" name="dni">
           </div>
           <div class="donation__input">
             <label for="">Celular</label>
-            <input type="text">
+            <input type="text" name="celular">
           </div>
         </div>
         <div class="donation__container-inputs">
           <div class="donation__input">
-            <label for="">Correo Elctronico</label>
-            <input type="text">
+            <label for="">Correo Electronico</label>
+            <input type="text" name="email">
           </div>
           <div class="donation__input">
             <label for="">Confirmación de Correo Electronico</label>
-            <input type="text">
+            <input type="text" name="cemail">
           </div>
         </div>
         <div class="donation__file">
-          <label for="file">Selecciona <i class="fas fa-upload"></i></label>
-          <input type="file" id="file" name="file">
+          <label for="file">SELECCIONA UNA IMAGEN <i class="fas fa-upload"></i></label>
+          <input type="file" id="file" name="imagen" onchange="readURL(this);">
+        </div>
+        <div class="donation__imgfile">
+          <img id="blah" src="http://placehold.it/180" alt="your image" class="vouimg" />
         </div>
         <div class="donation__submit">
           <button type="submit">ENVIAR</button>

@@ -31,3 +31,8 @@
 .dformpetaddphoto {
   margin-bottom: 4rem;
 }
+
+.vouimg {
+  width: 8rem !important;
+  height: 8rem !important;
+}
