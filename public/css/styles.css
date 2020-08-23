@@ -306,8 +306,8 @@ body {
       background-color: #e02f61; }
 
 .open_donation {
-  opacity: 1;
-  visibility: visible; }
+  opacity: 1 !important;
+  visibility: visible !important; }
 
 .home__pet-title {
   padding: 5rem; }

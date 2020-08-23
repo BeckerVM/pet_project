@@ -48,6 +48,25 @@ const sendDonation = async (req, res) => {
   })
 }
 
+const getPageAdminDonation = (req, res) => {
+  res.render('admin_donations', { url: 'DONACIONES' })
+}
+
+const getDonations = (req, res) => {
+  connection.query(
+    'SELECT id, nombrecompleto as donante, celular, email, fecha, url from donantes INNER JOIN donaciones ON dnidonante = dni',
+    (err, donations) => {
+      if(err) throw err;
+      
+      res.json({
+        donations
+      })
+    }
+  )
+}
+
 module.exports = {
-  sendDonation
+  sendDonation,
+  getDonations,
+  getPageAdminDonation
 }

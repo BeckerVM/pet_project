@@ -1,0 +1,57 @@
+<div class="dashboard">
+  {{> adminmenu }}
+  <div class="dpets">
+    <div class="dpets__add">
+      <span class="dpets__title bold">DONACIONES DE PERSONAS QUE APOYAN A HAPPYPET</span>
+    </div>
+
+    <div class="dpets__serch">
+      <input type="text" placeholder="Buscar Donacion ...">
+    </div>
+
+    <div class="dpets__serch datetime">
+      <div class="">
+        <span>DESDE: </span>
+        <input type="date" name="" id="">
+      </div>
+      <div>
+        <span>HASTA: </span>
+        <input type="date" name="" id="">
+      </div>
+    </div>
+
+    <ul class="list">
+      <li>
+        <span>ID</span>
+        <span>Donante</span>
+        <span>Celular</span>
+        <span>Email</span>
+        <span>Fecha</span>
+        <span>Acciones</span>
+        <span></span>
+      </li>
+      <li v-for="donation in donations" :key="donation.id">
+        <span>[[ donation.id ]]</span>
+        <span>[[ donation.donante ]]</span>
+        <span>
+          [[ donation.celular ]]
+        </span>
+        <span>
+          [[ donation.email ]]
+        </span>
+        <span>[[ donation.fecha ]]</span>
+        <span>
+          <div class="btn-group btn-group-xs" role="group" aria-label="...">
+            <a href="#" class="btn__pets btn__pets1" @click.prevent="openVoucher(donation.url)"><i class="fas fa-edit"></i> Ver Voucher</a>
+            <a href="#" class="btn__pets btn__pets3"><i class="fas fa-trash"></i> Eliminar</a>
+          </div>
+        </span>
+        <span></span>
+      </li>
+  </div>
+  <div class="modal__voucher" id="voucher">
+    <i  class="fas fa-times-circle menumenu__close" @click="closeVoucher"></i>
+    <img :src="voucher" alt="Voucher">
+  </div>
+  {{> adminfooter }}
+</div>

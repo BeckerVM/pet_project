@@ -26,7 +26,8 @@ const app = new Vue({
     newsWeb: [],
     storiesWeb: [],
     months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-
+    donations: [],
+    voucher: ''
   },
   created: function () {
     this.url = window.location.href
@@ -35,6 +36,7 @@ const app = new Vue({
     this.getPetsByAge()
     this.getNewsAdmin()
     this.getStoriesAdmin()
+    this.getDonationsAdmin()
   },
   methods: {
     //INICIO - ADMIN
@@ -51,6 +53,13 @@ const app = new Vue({
         axios.post('http://localhost:5000/dashboard/stories').then((response) => {
           this.storiesWeb = response.data.stories
           console.log(this.storiesWeb)
+        })
+      }
+    },
+    getDonationsAdmin: function() {
+      if(this.url.includes('/dashboard/donations')) {
+        axios.post('http://localhost:5000/dashboard/donations').then((response) => {
+          this.donations = response.data.donations
         })
       }
     },
@@ -175,7 +184,6 @@ const app = new Vue({
     },
     //INICIO - DONACIONES
     openDonation: function () {
-      console.log('Holis')
       const bod = document.getElementById('body')
       const donation = document.getElementById('donation')
       bod.classList.add('scroll')
@@ -190,6 +198,21 @@ const app = new Vue({
       }
 
       donation.classList.remove('open_donation')
+    },
+    openVoucher: function(urlVoucher) {
+      this.voucher = urlVoucher
+      const bod = document.getElementById('body')
+      const voucher = document.getElementById('voucher')
+      bod.classList.add('scroll')
+      voucher.classList.add('open_donation')
+      
+    },
+    closeVoucher: function() {
+      this.voucher = ''
+      const bod = document.getElementById('body')
+      const voucher = document.getElementById('voucher')
+      bod.classList.remove('scroll')
+      voucher.classList.remove('open_donation')
     }
     //FIN - DONACIONES
 
