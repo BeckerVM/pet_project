@@ -58,10 +58,31 @@ const getStories = (req, res) => {
   })
 }
 
+
+const getPageCongratulations = (req, res) => {
+  res.render('congratulations')
+}
+
+const getPageAdoption = (req, res) => {
+  const { petId } = req.params
+  connection.query('SELECT * FROM mascotas where id = ?', [petId], (err, pets) => {
+    if(err) throw err
+    res.render('adoption', { nombre: pets[0].nombre.toUpperCase(), id: pets[0].id, photo: pets[0].photo })
+  })
+  
+}
+
+const getPagePostulaste = (req, res) => {
+  res.render('postulaste')
+}
+
 module.exports = {
   getDataHome,
   getHistory,
   getNew,
   getNews,
-  getStories
+  getStories,
+  getPageCongratulations,
+  getPageAdoption,
+  getPagePostulaste
 }

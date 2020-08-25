@@ -159,6 +159,59 @@ const getPetsByAge = (req, res) => {
   })
 }
 
+const postulation = (req, res) => {
+  const {idmascota, paterno, materno, nombre, dni, direccion, telefono, celular, email, ocupacion } = req.body
+
+  connection.query('SELECT * FROM postulantes WHERE dni = ?', [dni], (err, postulantes) =>  {
+    if(err) throw err;
+
+    if(postulantes.length === 0) {
+      connection.query(
+        'INSERT INTO postulantes (dni, nombres, apellidop, apellidom, direccion, celular, email, telefono, ocupacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        [dni, nombre, paterno, materno, direccion, celular, email, telefono, ocupacion],
+        (err, result) => {
+          if (err) throw err;
+
+          connection.query(
+            'INSERT INTO postulaciones(idmascota, dnipostulante, fecha, estado) VALUES (?, ?, ?, ?)',
+            [idmascota, dni, new Date().toLocaleDateString("en-US"), 'Pendiente'],
+            (err, result) => {
+              if (err) throw err;
+              
+              connection.query(
+                'UPDATE mascotas SET estado = ? WHERE id = ?',
+                ['Procesado', idmascota],
+                (err, result) => {
+                  if (err) throw err
+                  res.redirect('/postulaste')
+                }
+              )
+            }
+          )
+        }
+      )
+    } else {
+      connection.query(
+        'INSERT INTO postulaciones(idmascota, dnipostulante, fecha, estado) VALUES (?, ?, ?, ?)',
+        [idmascota, dni, new Date().toLocaleDateString("en-US"), 'Pendiente'],
+        (err, result) => {
+          if (err) throw err;
+
+          connection.query(
+            'UPDATE mascotas SET estado = ? WHERE id = ?',
+            ['Procesado', idmascota],
+            (err, result) => {
+              if (err) throw err
+              res.redirect('/postulaste')
+            }
+          )
+        }
+      )
+    }
+    
+  })
+}
+
 module.exports = {
   getDataPetById,
   getPet,
@@ -172,5 +225,6 @@ module.exports = {
   updatePet,
   getPagePetAddImage,
   deleteImagePet,
-  addImagePet
+  addImagePet,
+  postulation
 }

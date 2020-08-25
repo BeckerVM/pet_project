@@ -1,0 +1,64 @@
+<div class="dashboard">
+  {{> adminmenu }}
+  <div class="dpets">
+    <div class="dpets__add">
+      <span class="dpets__title bold">POSTULACIONES DE ADOPCION</span>
+    </div>
+
+    <div class="dpets__serch">
+      <input type="text" placeholder="Buscar Postulacion ...">
+    </div>
+
+    <div class="dpets__serch datetime">
+      <div class="">
+        <span>DESDE: </span>
+        <input type="date" name="" id="">
+      </div>
+      <div>
+        <span>HASTA: </span>
+        <input type="date" name="" id="">
+      </div>
+    </div>
+
+    <ul class="list">
+      <li>
+        <span>Postulante</span>
+        <span>Celular</span>
+        <span>Telefono</span>
+        <span>Email</span>
+        <span>Fecha</span>
+        <span>Mascota</span>
+        <span>Estado</span>
+        <span>Acciones</span>
+        <span></span>
+      </li>
+      <li v-for="postulation in postulations" :key="postulation.id">
+        <span>[[ postulation.nombres + ' ' + postulation.apellidop + ' ' + postulation.apellidom  ]] </span>
+        <span>
+          [[ postulation.celular ]]
+        </span>
+        <span>
+          [[ postulation.telefono ]]
+        </span>
+        <span>[[ postulation.email ]] </span>
+        <span>25/08/2020</span>
+        <span>
+          <div class="btn-group btn-group-xs" role="group" aria-label="...">
+            <a href="#" class="btn__pets btn__pets3" @click.prevent="openPet(postulation.photo)"><i class="fas fa-edit"></i> Ver a [[ postulation.nombre ]]</a>
+          </div>
+        </span>
+        <span>[[ postulation.estado ]]</span>
+        <span>
+          <div class="btn-group btn-group-xs" role="group" aria-label="...">
+            <a href="#" class="btn__pets btn__pets1"><i class="fas fa-edit"></i>Programar Entrevista</a>
+          </div>
+        </span>
+        <span></span>
+      </li>
+  </div>
+  <div class="modal__voucher" id="pet">
+    <i  class="fas fa-times-circle menumenu__close" @click="closePet()"></i>
+    <img :src="postulationPet" alt="Mascota">
+  </div>
+  {{> adminfooter }}
+</div>

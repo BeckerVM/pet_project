@@ -28,7 +28,7 @@ const sendDonation = async (req, res) => {
             async (err, result) => {
               if (err) throw err;
               await fs.unlink(req.file.path)
-              res.redirect('/')
+              res.redirect('/agradecimientos')
             }
           )
         }
@@ -40,7 +40,7 @@ const sendDonation = async (req, res) => {
         async (err, result) => {
           if (err) throw err;
           await fs.unlink(req.file.path)
-          res.redirect('/')
+          res.redirect('/agradecimientos')
         }
       )
     }

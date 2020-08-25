@@ -9,7 +9,11 @@ const petController = require('../controllers/pet_controller')
 const donationController = require('../controllers/donation_controller')
 
 router.get('/',  noAuthenticated, indexController.getDataHome)
+router.get('/agradecimientos', noAuthenticated, indexController.getPageCongratulations)
+router.get('/adopta/:petId', indexController.getPageAdoption)
+router.get('/postulaste', indexController.getPagePostulaste)
 
+router.post('/adoption', petController.postulation)
 //MASCOTAS 
 router.get('/pets',  noAuthenticated, petController.getPets)
 

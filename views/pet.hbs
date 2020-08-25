@@ -51,7 +51,8 @@
           </div>
         </div>
         <div class="pet__btn">
-          <a href="#">ADOPTAR</a>
+          <a v-if="petWeb.estado === 'Libre'" :href="'/adopta/' + petWeb.id">ADOPTAR</a>
+          <span v-if="petWeb.estado !== 'Libre'">EN PROCESO DE ADOPCION</span>
         </div>
       </div>
     </div>

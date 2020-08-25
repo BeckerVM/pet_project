@@ -25,9 +25,19 @@ const app = new Vue({
     petsWeb: [],
     newsWeb: [],
     storiesWeb: [],
+    workersWeb: [],
     months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
     donations: [],
-    voucher: ''
+    postulations: [],
+    voucher: '',
+    postulationPet: '',
+    //TRABAJADOR DATA
+    nameW: '',
+    dniW: '',
+    celW: '',
+    messageAlert: '',
+    alerts: false,
+    alertd: false
   },
   created: function () {
     this.url = window.location.href
@@ -37,6 +47,8 @@ const app = new Vue({
     this.getNewsAdmin()
     this.getStoriesAdmin()
     this.getDonationsAdmin()
+    this.getWorkersAdmin()
+    this.getPostulationsAdmin()
   },
   methods: {
     //INICIO - ADMIN
@@ -56,12 +68,54 @@ const app = new Vue({
         })
       }
     },
+    getWorkersAdmin: function() {
+      if (this.url.includes('/dashboard/workers')) {
+        axios.post('http://localhost:5000/dashboard/workers').then((response) => {
+          this.workersWeb = response.data.workers
+          console.log(this.workersWeb)
+        })
+      }
+    },
     getDonationsAdmin: function() {
       if(this.url.includes('/dashboard/donations')) {
         axios.post('http://localhost:5000/dashboard/donations').then((response) => {
           this.donations = response.data.donations
         })
       }
+    },
+    getPostulationsAdmin: function() {
+      if(this.url.includes('/dashboard/postulations')) {
+        axios.post('http://localhost:5000/dashboard/postulations').then((response) => {
+          this.postulations = response.data.postulations
+          console.log(this.postulations)
+        })
+      }
+    },
+    addWorkerAdmin: function() {
+      axios.post('http://localhost:5000/dashboard/workers/add', { nombre: this.nameW, dni: this.dniW, celular: this.celW }).then((response) => {
+        this.messageAlert = response.data.message
+        this.alerts = true
+        this.alertd = false
+        setTimeout(() => {
+          this.messageAlert = ''
+          this.alerts = false
+          this.nameW = ''
+          this.celW = ''
+          this.dniW = ''
+          this.getWorkersAdmin()
+        }, 2500)
+      }).catch(err => {
+        this.messageAlert = 'Trabajador ya registrado anteriormente'
+        this.alerts = false
+        this.alertd = true
+        setTimeout(() => {
+          this.messageAlert = ''
+          this.alertd = false
+          this.nameW = ''
+          this.celW = ''
+          this.dniW = ''
+        }, 2500)
+      })
     },
     //FIN - ADMIN
     //INICIO - MASCOTAS - CLIENT
@@ -208,11 +262,34 @@ const app = new Vue({
       
     },
     closeVoucher: function() {
-      this.voucher = ''
+      
       const bod = document.getElementById('body')
       const voucher = document.getElementById('voucher')
       bod.classList.remove('scroll')
       voucher.classList.remove('open_donation')
+      
+      setTimeout(() => {
+        this.voucher = ''
+      }, 500)
+    },
+    openPet: function(urlPet) {
+      this.postulationPet = urlPet
+      const bod = document.getElementById('body')
+      const pet = document.getElementById('pet')
+      bod.classList.add('scroll')
+      pet.classList.add('open_donation')
+      
+    },
+    closePet: function() {
+      
+      const bod = document.getElementById('body')
+      const pet = document.getElementById('pet')
+      bod.classList.remove('scroll')
+      pet.classList.remove('open_donation')
+      setTimeout(() => {
+        this.postulationPet = ''
+      }, 500)
+      
     }
     //FIN - DONACIONES
 

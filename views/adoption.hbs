@@ -1,0 +1,72 @@
+{{> verticalmenu }}
+
+{{> donationmodal }}
+
+<div class="content">
+  {{> horizontalmenu }}
+
+  {{> banner5 }}
+
+  <div class="amenidad">
+    <div class="amenidad__content">
+       <form class="donation__inputs adoption__form" action="/adoption" method="POST" >
+       <input type="hidden" name="idmascota" value="{{ id }}">
+       <h5 class="amenidad__title">ADOPTA A {{ nombre }}</h5>
+       <div class="adoption__m">
+         <img width="150" height="150" src="{{ photo }}" alt="Mascota">
+       </div>
+       <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="">Nombres</label>
+            <input type="text" name="nombre" placeholder="Nombres">
+          </div>
+        </div>
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="">Apellido Paterno</label>
+            <input type="text" name="paterno" placeholder="Apellido Paterno">
+          </div>
+          <div class="donation__input">
+            <label for="">Apellido Materno</label>
+            <input type="text" name="materno" placeholder="Apellido Materno">
+          </div>
+        </div>
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="">N° de DNI</label>
+            <input type="text" name="dni" placeholder="DNI">
+          </div>
+          <div class="donation__input">
+            <label for="">Dirección</label>
+            <input type="text" name="direccion" placeholder="Dirección">
+          </div>
+        </div>
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="">Teléfono fijo</label>
+            <input type="text" name="telefono" placeholder="Teléfono">
+          </div>
+          <div class="donation__input">
+            <label for="">Teléfono celular</label>
+            <input type="text" name="celular" placeholder="Celular">
+          </div>
+        </div>
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="">Correo electrónico</label>
+            <input type="text" name="email" placeholder="Correo electrónico">
+          </div>
+          <div class="donation__input">
+            <label for="">Ocupación</label>
+            <input type="text" name="ocupacion" placeholder="Ocupación">
+          </div>
+        </div>
+        <div class="donation__submit">
+          <button type="submit">POSTULAR</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {{> footer}}
+</div>

@@ -1,0 +1,54 @@
+<div class="dashboard">
+  {{> adminmenu }}
+  <div class="dpets">
+    <h2 class="dpets__title  mb10">AGREGAR TRABAJADOR</h2>
+    <div class="dpets__add">
+      <form  class="donation__inputs" @submit.prevent="addWorkerAdmin()">
+        <div v-if="messageAlert" :class="{ 'alert': true, 'alertd': alertd, alerts: alerts }">[[ messageAlert ]]</div>
+        <div class="donation__container-inputs">
+          <div class="donation__input">
+            <label for="dni">DNI</label>
+            <input type="text" placeholder="DNI" name="dni" v-model="dniW">
+          </div>
+          <div class="donation__input">
+            <label for="Nombre">Nombre Completo</label>
+            <input type="text" placeholder="Nombre Completo" name="nombre" v-model="nameW">
+          </div>
+          <div class="donation__input">
+            <label for="Celular">Celular</label>
+            <input type="text" placeholder="Celular" name="celular" v-model="celW">
+          </div>
+        </div>
+        <div class="donation__submit">
+          <button type="submit">GUARDAR</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="dpets__serch">
+      <input type="text" placeholder="Buscar Trabajador ...">
+    </div>
+
+    <ul class="list">
+      <li>
+        <span>DNI</span>
+        <span>Nombre Completo</span>
+        <span>Celular</span>
+        <span>Acciones</span>
+        <span></span>
+      </li> 
+      <li v-for="worker in workersWeb" :key="worker.dni">
+        <span>[[ worker.dni ]]</span>
+        <span>[[ worker.nombrecompleto ]]</span>
+        <span>[[ worker.celular ]]</span>
+        <span>
+          <div class="btn-group btn-group-xs" role="group" aria-label="...">
+            <a href="#" class="btn__pets btn__pets2"><i class="fas fa-edit"></i> Editar</a>
+            <a href="#" class="btn__pets btn__pets3"><i class="fas fa-trash"></i> Eliminar</a>
+          </div>
+        </span>
+        <span></span>
+      </li>
+  </div>
+  {{> adminfooter }}
+</div>
