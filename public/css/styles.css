@@ -646,7 +646,7 @@ body {
   padding: 4.5rem; }
 
 .pet__right {
-  padding: 2rem 6rem; }
+  padding: 2rem 6rem; flex: 1;}
 
 .pet__photop {
   width: 42.5rem;

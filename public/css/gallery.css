@@ -150,3 +150,40 @@
   font-size: 1.8rem;
  
 }
+
+.btn-p {
+  width: 8rem!important;
+  display: inline-block;
+  text-align: center;
+}
+
+.b-white {
+  background-color: #fff!important;
+}
+
+.j-center {
+  justify-content: center!important;
+}
+
+.j-center > div {
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.j-center label {
+  margin-right: .5rem!important;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.j-center input, .j-center select {
+  border: .1rem solid #ccc!important;
+}
+
+.j-center select {
+  border-radius: .3rem;
+  width: 26rem;
+  padding: .5rem;
+  display: inline-block;
+}

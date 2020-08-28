@@ -11,6 +11,8 @@ const historyController = require('../controllers/history_controller')
 const donationController = require('../controllers/donation_controller')
 const workerController = require('../controllers/worker_controller')
 const postulationController = require('../controllers/postulation_controller')
+const entrevistaController = require('../controllers/entrevista_controller')
+
 
 router.get('/home', /*isAuthenticatedAdmin,*/ adminController.getDataDashboardHome)
 router.get('/pets', petController.getPagePetsAdmin)
@@ -25,7 +27,7 @@ router.get('/pets/images/delete/:petId/:imageId', petController.deleteImagePet)
 router.get('/donations', donationController.getPageAdminDonation)
 router.get('/workers', workerController.getPageAdminWorker)
 router.get('/postulations', postulationController.getPageAdminPostulation)
-
+router.get('/entrevista/:petId', entrevistaController.getPageEntrevista)
 //POST - ADMIN
 router.post('/pets', petController.getAllPets)
 router.post('/news', newController.getAllNews)
@@ -38,5 +40,6 @@ router.post('/donations', donationController.getDonations)
 router.post('/workers', workerController.getWorkers)
 router.post('/workers/add', workerController.addWorker)
 router.post('/postulations', postulationController.getAdminPostulations)
+router.post('/entrevista/:petId', entrevistaController.getDataPageEntrevista)
 
 module.exports = router

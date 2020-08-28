@@ -1,0 +1,34 @@
+<div class="dashboard">
+  {{> adminmenu }}
+
+  <div class="dpets b-white">
+    <h2 class="dpets__title">Programar Entrevista</h2>
+    <p class="dpets__subtitle">Para la adopción de <b>[[ petWeb.nombre]]</b></p>
+
+    <form action="" method="POST" class="dformpetaddphoto">
+      <div class="donation__imgfile">
+        <img :src="petWeb.photo" alt="Mascota" />
+      </div>
+      <div class="dpets__serch datetime j-center">
+        <div>
+          <label>FECHA PROGRAMADA: </label>
+          <input type="datetime-local" name="" id="">
+        </div>
+        <div>
+          <label>ENGARGADO: </label>
+          <select>
+              <option v-for="worker in workersWeb"  :key="worker.id" :value="worker.id">[[ worker.nombrecompleto ]]</option>
+          </select>
+        </div>
+      </div>
+      <div class="donation__submit">
+        <button type="submit">PROGRAMAR</button>
+      </div>
+    </form>
+    <!-- Upload  -->
+    <div class="news__content petadmin__photos">
+
+    </div>
+  </div>
+  {{> adminfooter }}
+</div>

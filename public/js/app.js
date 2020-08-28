@@ -49,9 +49,18 @@ const app = new Vue({
     this.getDonationsAdmin()
     this.getWorkersAdmin()
     this.getPostulationsAdmin()
+    this.getDataEntrevistaAdmin()
   },
   methods: {
     //INICIO - ADMIN
+    getDataEntrevistaAdmin: function() {
+      if (this.url.includes('/dashboard/entrevista')) {
+        axios.post(this.url).then((response) => {
+          this.petWeb = response.data.pet
+          this.workersWeb = response.data.workers
+        })
+      }
+    },
     getNewsAdmin: function () {
       if (this.url.includes('/dashboard/news')) {
         axios.post('http://localhost:5000/dashboard/news').then((response) => {

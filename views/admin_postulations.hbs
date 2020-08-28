@@ -25,10 +25,10 @@
         <span>Postulante</span>
         <span>Celular</span>
         <span>Telefono</span>
-        <span>Email</span>
         <span>Fecha</span>
         <span>Mascota</span>
         <span>Estado</span>
+        <span></span>
         <span>Acciones</span>
         <span></span>
       </li>
@@ -40,17 +40,22 @@
         <span>
           [[ postulation.telefono ]]
         </span>
-        <span>[[ postulation.email ]] </span>
         <span>25/08/2020</span>
         <span>
           <div class="btn-group btn-group-xs" role="group" aria-label="...">
-            <a href="#" class="btn__pets btn__pets3" @click.prevent="openPet(postulation.photo)"><i class="fas fa-edit"></i> Ver a [[ postulation.nombre ]]</a>
+            <a href="#" class="btn__pets btn__pets3 btn-p" @click.prevent="openPet(postulation.photo)"><i class="fas fa-camera-retro"></i>  [[ postulation.nombre ]] </a>
           </div>
         </span>
         <span>[[ postulation.estado ]]</span>
         <span>
           <div class="btn-group btn-group-xs" role="group" aria-label="...">
-            <a href="#" class="btn__pets btn__pets1"><i class="fas fa-edit"></i>Programar Entrevista</a>
+            <a :href="'/dashboard/entrevista/' + postulation.idmascota" class="btn__pets btn__pets1"><i class="fas fa-edit"></i>Programar Entrevista</a>
+          </div>
+        </span>
+        <span>
+          <div class="btn-group btn-group-xs" role="group" aria-label="...">
+            <a href="#" class="btn__pets btn__pets2"><i class="fas fa-edit"></i>Confirmar</a>
+            <a href="#" class="btn__pets btn__pets2"><i class="fas fa-edit"></i>Rechazar</a>
           </div>
         </span>
         <span></span>
