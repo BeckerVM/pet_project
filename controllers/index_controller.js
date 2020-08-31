@@ -2,7 +2,7 @@ const connection = require('../db/connection')
 
 const getDataHome = (req, res) => {
   
-  connection.query('SELECT * FROM mascotas LIMIT 4', (err, pets) => {
+  connection.query('SELECT * FROM mascotas WHERE estado = ? LIMIT 4', ['Libre'], (err, pets) => {
     if(err) throw err;
 
     connection.query('SELECT * FROM amenidades where tipo = ? LIMIT 3', ['Noticia'], (err, news) => {

@@ -18,4 +18,6 @@ router.post(
 
 router.get('/logout', authController.logout)
 
+router.get('/recovery', authController.sendEmail)
+
 module.exports = router

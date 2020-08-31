@@ -2,7 +2,7 @@
   {{> adminmenu }}
   <div class="dpets">
     <div class="dpets__add">
-      <span class="dpets__title bold">POSTULACIONES DE ADOPCION</span>
+      <span class="dpets__title">POSTULACIONES DE ADOPCION</span>
     </div>
 
     <div class="dpets__serch">
@@ -33,7 +33,7 @@
         <span></span>
       </li>
       <li v-for="postulation in postulations" :key="postulation.id">
-        <span>[[ postulation.nombres + ' ' + postulation.apellidop + ' ' + postulation.apellidom  ]] </span>
+        <span>[[ postulation.nombres + ' ' + postulation.apellidop + ' ' + postulation.apellidom ]] </span>
         <span>
           [[ postulation.celular ]]
         </span>
@@ -43,27 +43,75 @@
         <span>25/08/2020</span>
         <span>
           <div class="btn-group btn-group-xs" role="group" aria-label="...">
-            <a href="#" class="btn__pets btn__pets3 btn-p" @click.prevent="openPet(postulation.photo)"><i class="fas fa-camera-retro"></i>  [[ postulation.nombre ]] </a>
+            <a href="#" class="btn__pets btn__pets3 btn-p" @click.prevent="openPet(postulation.photo)"><i
+                class="fas fa-camera-retro"></i> [[ postulation.nombre ]] </a>
           </div>
         </span>
         <span>[[ postulation.estado ]]</span>
         <span>
-          <div class="btn-group btn-group-xs" role="group" aria-label="...">
-            <a :href="'/dashboard/entrevista/' + postulation.idmascota" class="btn__pets btn__pets1"><i class="fas fa-edit"></i>Programar Entrevista</a>
+          <div v-if="postulation.estado !== 'Rechazado'">
+            <div v-if="postulation.estado === 'Pendiente'" class="btn-group btn-group-xs" role="group" aria-label="...">
+              <a :href="'/dashboard/entrevista/' + postulation.idmascota + '/' + postulation.dni + '/' + postulation.id"
+                class="btn__pets btn__pets1 btn__en"><i class="fas fa-edit"></i> Programar Entrevista</a>
+            </div>
+            <div v-if="postulation.estado !== 'Pendiente'" class="btn-group btn-group-xs" role="group" aria-label="...">
+              <a href="#" @click.prevent="openModale(postulation.id)" class="btn__pets btn__pets1 btn__en"><i
+                  class="fas fa-edit"></i>Visualizar Entrevista</a>
+            </div>
           </div>
+
         </span>
         <span>
-          <div class="btn-group btn-group-xs" role="group" aria-label="...">
-            <a href="#" class="btn__pets btn__pets2"><i class="fas fa-edit"></i>Confirmar</a>
-            <a href="#" class="btn__pets btn__pets2"><i class="fas fa-edit"></i>Rechazar</a>
+          <div v-if="postulation.estado !== 'Rechazado' && postulation.estado !== 'Confirmado'"
+            class="btn-group btn-group-xs" role="group" aria-label="...">
+            <a :href="'/dashboard/postulation/confirm/' + postulation.id" class="btn__pets btn__pets2"><i
+                class="fas fa-edit"></i>Confirmar</a>
+            <a :href="'/dashboard/postulation/reject/' + postulation.id" class="btn__pets btn__pets2"><i
+                class="fas fa-edit"></i>Rechazar</a>
+          </div>
+          <div v-if="postulation.estado === 'Confirmado' || postulation.estado === 'Rechazado'"
+            class="btn-group btn-group-xs" role="group" aria-label="...">
+            <span>Acciones Completadas</span>
           </div>
         </span>
         <span></span>
       </li>
+    </ul>
   </div>
   <div class="modal__voucher" id="pet">
-    <i  class="fas fa-times-circle menumenu__close" @click="closePet()"></i>
+    <i class="fas fa-times-circle menumenu__close" @click="closePet()"></i>
     <img :src="postulationPet" alt="Mascota">
+  </div>
+  <div class="modale">
+    <div class="modal__voucher" id="modaleBack" @click="closeModale()"></div>
+    <div class="modale__content" id="modaleContent">
+      <div class="modale__header">
+        <strong>ENTREVISTA PROGRAMADA</strong>
+      </div>
+      <div class="modale__body">
+        <ul class="list listm">
+          <li>
+            <span>ID</span>
+            <span>Encargado</span>
+            <span>Fecha</span>
+            <span></span>
+          </li>
+          <li v-for="entrevista in entrevistas" :key="entrevista.id">
+            <span>[[ entrevista.id ]]</span>
+            <span>
+              [[ entrevista.nombrecompleto ]]
+            </span>
+            <span>
+              [[ entrevista.fecha.replace('T', ' ') ]]
+            </span>
+            <span></span>
+          </li>
+        </ul>
+      </div>
+      <div class="modale__footer">
+        <button @click="closeModale()">Cerrar</button>
+      </div>
+    </div>
   </div>
   {{> adminfooter }}
 </div>

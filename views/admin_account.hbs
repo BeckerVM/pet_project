@@ -1,0 +1,47 @@
+<div class="dashboard">
+  {{> adminmenu }}
+
+  <div class="dpets b-white">
+    <div class="dpets__add acc">
+      <span class="dpets__title">CONFIGURA LA CUENTA</span>
+    </div>
+
+    <form @submit.prevent="openModaleAccount()" class="aform">
+      <div class="aform__profile">
+        <img src="https://www.searchpng.com/wp-content/uploads/2019/02/Profile-PNG-Icon.png" alt="Profile" width="150"
+          height="150">
+      </div>
+      <div class="aform__inputs">
+        <input type="text" placeholder="Nombre de usuario" v-model="ausername">
+
+        <input type="email" placeholder="Correo electronico" v-model="aemail">
+      </div>
+      <div class="aform__inputs">
+        <input type="password" placeholder="Contraseña actual" v-model="apass">
+
+        <input type="password" placeholder="Nueva contraseña" v-model="anpass">
+      </div>
+
+      <div class="donation__submit">
+        <button type="submit">GUARDAR</button>
+      </div>
+    </form>
+    <!-- Upload  -->
+  </div>
+  <div class="modale">
+    <div class="modal__voucher" id="modaleBack" @click="closeModale()"></div>
+    <div class="modale__content" id="modaleContent">
+      <div class="modale__header">
+        <strong>CONFIGURACION</strong>
+      </div>
+      <div class="modale__body">
+        <span class="messagea">[[ messageAccount ]]</span>
+      </div>
+      <div class="modale__footer">
+        <button v-if="!errorAccount"  @click="updateAccountAdmin()" class="mr">OK</button>
+        <button @click="closeModale()">CERRAR</button>
+      </div>
+    </div>
+  </div>
+  {{> adminfooter }}
+</div>

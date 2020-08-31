@@ -142,7 +142,7 @@ const getPets = (req, res) => {
 }
 
 const getAllPets = (req, res) => {
-  connection.query('SELECT * FROM mascotas', (err, pets) => {
+  connection.query('SELECT * FROM mascotas WHERE estado = ? OR estado = ?', ['Libre', 'Procesado'], (err, pets) => {
     if(err) throw err
 
     res.json({ pets })
@@ -152,7 +152,7 @@ const getAllPets = (req, res) => {
 const getPetsByAge = (req, res) => {
   const { petAge } = req.params
 
-  connection.query('SELECT * FROM mascotas WHERE crecimiento = ?', [petAge], (err, pets) => {
+  connection.query('SELECT * FROM mascotas WHERE crecimiento = ? AND estado = ? OR estado = ?', [petAge, 'Libre', 'Procesado'], (err, pets) => {
     if(err) throw err
 
     res.json({ pets })

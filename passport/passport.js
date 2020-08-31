@@ -1,6 +1,7 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const connection = require('../db/connection')
+const bcrypt = require('bcrypt')
 
 passport.use(new LocalStrategy(
   {
@@ -14,8 +15,7 @@ passport.use(new LocalStrategy(
         return done(null, false, { message: 'Usuario o Contraseña Incorrecta' })
       }
 
-      if(password === user[0].contrasena) {
-        console.log('comparando contraseña')
+      if(bcrypt.compareSync(password, user[0].contrasena)) {
         return done(null, user[0])
       } else {
         return done(null, false, { message: 'Usuario o Contraseña Incorrecta' })

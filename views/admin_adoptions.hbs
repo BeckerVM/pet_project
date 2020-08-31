@@ -1,0 +1,56 @@
+<div class="dashboard">
+  {{> adminmenu }}
+  <div class="dpets">
+    <div class="dpets__add">
+      <span class="dpets__title">ADOPCION COMPLETADAS</span>
+    </div>
+
+    <div class="dpets__serch">
+      <input type="text" placeholder="Buscar Adopción ...">
+    </div>
+
+    <div class="dpets__serch datetime">
+      <div class="">
+        <span>DESDE: </span>
+        <input type="date" name="" id="">
+      </div>
+      <div>
+        <span>HASTA: </span>
+        <input type="date" name="" id="">
+      </div>
+    </div>
+
+    <ul class="list">
+      <li>
+        <span>Adoptante</span>
+        <span>Celular</span>
+        <span>Fecha de Adopción</span>
+        <span>Mascota</span>
+        <span>Direccion</span>
+        <span></span>
+      </li>
+      <li v-for="adoption in adoptions" :key="adoption.id">
+        <span><span>[[ adoption.nombres + ' ' + adoption.apellidop + ' ' + adoption.apellidom ]] </span></span>
+        <span>
+          [[ adoption.celular ]]
+        </span>
+        <span>
+          [[ adoption.fecha ]]
+        </span>
+        <span>
+          <div class="btn-group btn-group-xs" role="group" aria-label="...">
+            <a href="#" class="btn__pets btn__pets3 btn-p" @click.prevent="openPet(adoption.photo)"><i
+                class="fas fa-camera-retro"></i> [[adoption.nombre ]]</a>
+          </div>
+        </span>
+        <span>[[ adoption.direccion ]]</span>
+        <span></span>
+      </li>
+    </ul>
+  </div>
+  <div class="modal__voucher" id="pet">
+    <i class="fas fa-times-circle menumenu__close" @click="closePet()"></i>
+    <img :src="postulationPet" alt="Mascota">
+  </div>
+  {{> adminfooter }}
+</div>  

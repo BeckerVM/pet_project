@@ -29,6 +29,7 @@ const app = new Vue({
     months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
     donations: [],
     postulations: [],
+    adoptions: [],
     voucher: '',
     postulationPet: '',
     //TRABAJADOR DATA
@@ -37,7 +38,16 @@ const app = new Vue({
     celW: '',
     messageAlert: '',
     alerts: false,
-    alertd: false
+    alertd: false,
+    selectedWorker: '',
+    dateEntrevista: '',
+    entrevistas: [],
+    ausername: '',
+    aemail: '',
+    apass: '',
+    anpass: '',
+    errorAccount: false,
+    messageAccount: 'Esta seguro que quieres actualizar la cuenta?, si es asi presiona ok y sera redirigido al login de HappyPet'
   },
   created: function () {
     this.url = window.location.href
@@ -49,11 +59,27 @@ const app = new Vue({
     this.getDonationsAdmin()
     this.getWorkersAdmin()
     this.getPostulationsAdmin()
+    this.getAdoptionsAdmin()
     this.getDataEntrevistaAdmin()
   },
   methods: {
     //INICIO - ADMIN
-    getDataEntrevistaAdmin: function() {
+    updateAccountAdmin: function() {
+      axios.post('http://localhost:5000/dashboard/account', {
+        username: this.ausername,
+        pass: this.apass,
+        npass: this.anpass,
+        email: this.aemail
+      }).then((response) => {
+        window.location.href = 'http://localhost:5000/auth/login'
+      })
+      .catch(err => {
+        console.log(err.response.data)
+        this.errorAccount = true
+        this.messageAccount = err.response.data.message
+      })
+    },
+    getDataEntrevistaAdmin: function () {
       if (this.url.includes('/dashboard/entrevista')) {
         axios.post(this.url).then((response) => {
           this.petWeb = response.data.pet
@@ -77,30 +103,36 @@ const app = new Vue({
         })
       }
     },
-    getWorkersAdmin: function() {
+    getWorkersAdmin: function () {
       if (this.url.includes('/dashboard/workers')) {
         axios.post('http://localhost:5000/dashboard/workers').then((response) => {
           this.workersWeb = response.data.workers
-          console.log(this.workersWeb)
         })
       }
     },
-    getDonationsAdmin: function() {
-      if(this.url.includes('/dashboard/donations')) {
+    getDonationsAdmin: function () {
+      if (this.url.includes('/dashboard/donations')) {
         axios.post('http://localhost:5000/dashboard/donations').then((response) => {
           this.donations = response.data.donations
         })
       }
     },
-    getPostulationsAdmin: function() {
-      if(this.url.includes('/dashboard/postulations')) {
+    getPostulationsAdmin: function () {
+      if (this.url.includes('/dashboard/postulations')) {
         axios.post('http://localhost:5000/dashboard/postulations').then((response) => {
           this.postulations = response.data.postulations
-          console.log(this.postulations)
         })
       }
     },
-    addWorkerAdmin: function() {
+    getAdoptionsAdmin: function() {
+      if (this.url.includes('/dashboard/adoptions')) {
+        axios.post('http://localhost:5000/dashboard/adoptions').then((response) => {
+          this.adoptions = response.data.adoptions
+          console.log(this.adoptions)
+        })
+      }
+    },
+    addWorkerAdmin: function () {
       axios.post('http://localhost:5000/dashboard/workers/add', { nombre: this.nameW, dni: this.dniW, celular: this.celW }).then((response) => {
         this.messageAlert = response.data.message
         this.alerts = true
@@ -124,6 +156,24 @@ const app = new Vue({
           this.celW = ''
           this.dniW = ''
         }, 2500)
+      })
+    },
+    submitEntrevista: function () {
+      const postId = document.getElementById('postId').value 
+      const postDni = document.getElementById('postDni').value 
+
+      axios.post(`http://localhost:5000/dashboard/entrevistar`, { workerId: this.selectedWorker, date: this.dateEntrevista, postId, postDni }).then((response) => {
+        this.alerts = true
+        this.alertd = false
+        setTimeout(() => {
+          window.location.href = "http://localhost:5000/dashboard/postulations";
+        }, 1500)
+      }).catch(err => {
+        this.alertd = true
+        this.alerts = false
+        setTimeout(() => {
+          this.alertd = false
+        }, 1500)
       })
     },
     //FIN - ADMIN
@@ -262,35 +312,35 @@ const app = new Vue({
 
       donation.classList.remove('open_donation')
     },
-    openVoucher: function(urlVoucher) {
+    openVoucher: function (urlVoucher) {
       this.voucher = urlVoucher
       const bod = document.getElementById('body')
       const voucher = document.getElementById('voucher')
       bod.classList.add('scroll')
       voucher.classList.add('open_donation')
-      
+
     },
-    closeVoucher: function() {
-      
+    closeVoucher: function () {
+
       const bod = document.getElementById('body')
       const voucher = document.getElementById('voucher')
       bod.classList.remove('scroll')
       voucher.classList.remove('open_donation')
-      
+
       setTimeout(() => {
         this.voucher = ''
       }, 500)
     },
-    openPet: function(urlPet) {
+    openPet: function (urlPet) {
       this.postulationPet = urlPet
       const bod = document.getElementById('body')
       const pet = document.getElementById('pet')
       bod.classList.add('scroll')
       pet.classList.add('open_donation')
-      
+
     },
-    closePet: function() {
-      
+    closePet: function () {
+
       const bod = document.getElementById('body')
       const pet = document.getElementById('pet')
       bod.classList.remove('scroll')
@@ -298,9 +348,37 @@ const app = new Vue({
       setTimeout(() => {
         this.postulationPet = ''
       }, 500)
-      
-    }
-    //FIN - DONACIONES
 
+    },
+    openModale: function (postId) {
+      axios.get('http://localhost:5000/dashboard/detail/' + postId).then((response) => {
+        this.entrevistas = response.data.entrevistas
+        const bod = document.getElementById('body')
+        const modaleBack = document.getElementById('modaleBack')
+        const modaleContent = document.getElementById('modaleContent')
+        bod.classList.add('scroll')
+        modaleBack.classList.add('open_donation')
+        modaleContent.classList.add('open_modale')
+      })
+    },
+    closeModale: function () {
+      this.errorAccount = false
+      this.messageAccount = 'Esta seguro que quieres actualizar la cuenta?, si es asi presiona ok y sera redirigido al login de HappyPet'
+      const bod = document.getElementById('body')
+      const modaleBack = document.getElementById('modaleBack')
+      const modaleContent = document.getElementById('modaleContent')
+      bod.classList.remove('scroll')
+      modaleBack.classList.remove('open_donation')
+      modaleContent.classList.remove('open_modale')
+    },
+    //FIN - DONACIONES
+    openModaleAccount: function (postId) {
+      const bod = document.getElementById('body')
+      const modaleBack = document.getElementById('modaleBack')
+      const modaleContent = document.getElementById('modaleContent')
+      bod.classList.add('scroll')
+      modaleBack.classList.add('open_donation')
+      modaleContent.classList.add('open_modale')
+    },
   }
 })

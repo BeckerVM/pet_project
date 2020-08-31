@@ -4,20 +4,21 @@
   <div class="dpets b-white">
     <h2 class="dpets__title">Programar Entrevista</h2>
     <p class="dpets__subtitle">Para la adopción de <b>[[ petWeb.nombre]]</b></p>
-
-    <form action="" method="POST" class="dformpetaddphoto">
+    <input type="hidden" id="postId" value="{{ postId }}">
+    <input type="hidden" id="postDni" value="{{ postDni }}">
+    <form @submit.prevent="submitEntrevista()" class="dformpetaddphoto">
       <div class="donation__imgfile">
         <img :src="petWeb.photo" alt="Mascota" />
       </div>
       <div class="dpets__serch datetime j-center">
         <div>
           <label>FECHA PROGRAMADA: </label>
-          <input type="datetime-local" name="" id="">
+          <input v-model="dateEntrevista" type="datetime-local" name="" id="">
         </div>
         <div>
-          <label>ENGARGADO: </label>
-          <select>
-              <option v-for="worker in workersWeb"  :key="worker.id" :value="worker.id">[[ worker.nombrecompleto ]]</option>
+          <label>ENCARGADO: </label>
+          <select v-model="selectedWorker">
+              <option v-for="worker in workersWeb"  :key="worker.dni" :value="worker.dni">[[ worker.nombrecompleto ]]</option>
           </select>
         </div>
       </div>
@@ -27,7 +28,12 @@
     </form>
     <!-- Upload  -->
     <div class="news__content petadmin__photos">
-
+      <div class="alert alerts" v-if="alerts">
+        ENTREVISTA PROGRAMADA CORRECTAMENTE
+      </div>
+      <div class="alert alertd" v-if="alertd">
+        HORA YA ASIGNADA PARA ESTE TRABAJADOR
+      </div>
     </div>
   </div>
   {{> adminfooter }}
