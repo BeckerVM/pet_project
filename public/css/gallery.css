@@ -291,3 +291,16 @@
 .mr {
   margin-right: .5rem!important;
 }
+
+.recovery {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.recovery a {
+  color: #eb2f64;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+}

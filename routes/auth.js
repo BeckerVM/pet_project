@@ -20,4 +20,6 @@ router.get('/logout', authController.logout)
 
 router.get('/recovery', authController.sendEmail)
 
+router.get('/recovery/account', authController.getRecoveryPage)
+
 module.exports = router

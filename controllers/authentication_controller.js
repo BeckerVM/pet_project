@@ -7,6 +7,10 @@ const getLoginPage = (req, res) => {
   res.render('login')
 }
 
+const getRecoveryPage = (req, res) => {
+  res.render('recovery')
+}
+
 const login = (req, res) => {
   res.redirect('/dashboard/home')
 }
@@ -79,7 +83,7 @@ const sendEmail = (req, res) => {
           console.log(err)
         } else {
           console.log('Email Enviado')
-          res.redirect('/')
+          res.redirect('/auth/recovery/account')
         }
       })
     }
@@ -92,5 +96,6 @@ module.exports = {
   logout,
   getPageAccountAdmin,
   updateAccount,
-  sendEmail
+  sendEmail,
+  getRecoveryPage
 }
